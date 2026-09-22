@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# just an IELTS
 
-## Getting Started
+A focused IELTS preparation workspace built with Next.js. It includes a redesigned landing page, a responsive study dashboard, targeted practice and vocabulary views, and Google-only authentication.
 
-First, run the development server:
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Google sign-in configuration
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The login flow uses Google OAuth 2.0 on the server, exchanges the authorization code securely, retrieves the verified Google profile, and creates a signed, HTTP-only session cookie.
 
-## Learn More
+1. Create an OAuth **Web application** client in Google Cloud Console.
+2. Add `http://localhost:3000/api/auth/google/callback` to its authorized redirect URIs for local development. Add the equivalent production URL when deploying.
+3. Create `.env.local` from the following values:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+# Generate a long, unique random value. Do not commit it.
+AUTH_SECRET=your-long-random-session-secret
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Without these variables, the UI remains usable, while Google sign-in displays a clear configuration message rather than attempting an insecure client-side login.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Quality checks
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run lint
+npm run build
+```

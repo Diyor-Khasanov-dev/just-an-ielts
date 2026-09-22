@@ -1,8 +1,5 @@
+import { ArrowRight, BookMarked, RotateCcw, Sparkles } from "lucide-react";
+
 export default function VocabularyPage() {
-  return (
-    <div>
-      <h1>IELTS Vocabulary</h1>
-      <p>Expand your vocabulary with IELTS word lists, flashcards, and quizzes.</p>
-    </div>
-  );
+  return <><section className="page-heading"><p className="section-kicker">Vocabulary studio</p><h1>Words worth remembering.</h1><p className="muted">Build precise, natural language one meaningful review at a time.</p></section><section className="vocab-hero"><div><div className="eyebrow"><Sparkles size={14} /> Daily review</div><h2>15 words are ready<br />for your attention.</h2><p>Short reviews today make stronger recall on test day.</p><button>Start review <ArrowRight size={16} /></button></div><div className="word-card"><small>ACADEMIC VERB</small><strong>substantiate</strong><span>to provide evidence that supports a claim</span><i>“Research can substantiate the benefits of public transport.”</i></div></section><section className="vocab-stats"><article><BookMarked size={19} /><strong>1,248</strong><span>words learned</span></article><article><RotateCcw size={19} /><strong>87%</strong><span>retention rate</span></article><article><Sparkles size={19} /><strong>15</strong><span>due today</span></article></section></>;
 }
