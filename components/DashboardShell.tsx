@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Bell, BookOpen, ChevronDown, Headphones, LayoutDashboard, LineChart, Mic2, PenLine, Settings, Sparkles, Target } from 'lucide-react'
+import { Bell, BookOpen, ChevronDown, Headphones, LayoutDashboard, LineChart, LogOut, Mic2, PenLine, Settings, Sparkles, Target } from 'lucide-react'
 import { AppMark } from './AppMark'
 
 const links = [
@@ -28,6 +28,7 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
       <div className="sidebar-bottom">
         <div className="upgrade-card"><Sparkles size={17}/><p>Ready for band 8?</p><span>Unlock feedback & full tests.</span><Link href="/dashboard/tests">Explore plans</Link></div>
         <Link href="/dashboard/settings" className={`nav-link ${pathname === '/dashboard/settings' ? 'active' : ''}`}><Settings size={18}/>Settings</Link>
+        <Link href="/login" className="nav-link logout-link"><LogOut size={18}/>Log out</Link>
       </div>
     </aside>
     <div className="dashboard-main">
