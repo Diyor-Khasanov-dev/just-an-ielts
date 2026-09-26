@@ -1,9 +1,2 @@
-import React from 'react'
-
-const SettingsPage = () => {
-  return (
-    <div>SettingsPage</div>
-  )
-}
-
-export default SettingsPage
+import { PracticePage } from '@/components/PracticePage'
+export default function Page(){ return <PracticePage title="Settings" subtitle="Make your study space work for you." /> }
