@@ -15,7 +15,6 @@ import {
   Sparkles,
   Star,
   Target,
-  Trophy,
   Zap
 } from 'lucide-react'
 import { AppMark } from '@/components/AppMark'
@@ -77,7 +76,7 @@ export default function Home() {
       {/* Sticky Glass Navbar */}
       <header className='landing-header-sticky'>
         <div className='landing-nav'>
-          <AppMark />
+          <img src="/logo.png" alt="" className='w-15 h-12' />
           <nav className='hidden md:flex items-center gap-7'>
             <a href='#how' className='hover:text-indigo-600 transition'>
               How it works
@@ -412,7 +411,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className='mt-auto border-t border-gray-200 flex justify-between items-center w-full'>
-        <AppMark />
+        <img src="/logo.png" alt="" className='w-15 h-12' />
         <span>© 2026 just an ielts. Study with clarity and confidence.</span>
         <div className='flex items-center gap-4'>
           <Link href='/login' className='hover:text-indigo-600! transition'>

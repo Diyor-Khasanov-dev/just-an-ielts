@@ -48,29 +48,25 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
   return (
     <>
       {/* Mobile backdrop */}
-      {isOpen && (
-        <div
-          className="sidebar-overlay"
-          onClick={onClose}
-          aria-hidden="true"
-        />
-      )}
+      {isOpen && <div className='sidebar-overlay' onClick={onClose} aria-hidden='true' />}
 
       <aside className={`sidebar ${isOpen ? 'mobile-open' : ''}`}>
-        <div className="flex items-center justify-between">
-          <AppMark href="/dashboard" />
+        <div className='flex items-center justify-between'>
+          <Link href='/dashboard'>
+            <img src='/logo.png' alt='' className='w-15 h-12' />
+          </Link>
           {onClose && (
             <button
               onClick={onClose}
-              className="p-1 rounded-lg text-gray-500 hover:bg-gray-100 sm:hidden"
-              aria-label="Close sidebar"
+              className='p-1 rounded-lg text-gray-500 hover:bg-gray-100 sm:hidden'
+              aria-label='Close sidebar'
             >
               <X size={20} />
             </button>
           )}
         </div>
 
-        <div className="sidebar-section">
+        <div className='sidebar-section'>
           <p>Workspace</p>
           {mainLinks.map(({ href, label, icon: Icon }) => {
             const isActive = pathname === href
@@ -88,7 +84,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           })}
         </div>
 
-        <div className="sidebar-section">
+        <div className='sidebar-section'>
           <p>Skill Practice</p>
           {skillLinks.map(({ href, label, icon: Icon }) => {
             const isActive = pathname === href
@@ -106,18 +102,18 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           })}
         </div>
 
-        <div className="sidebar-bottom">
-          <div className="upgrade-card">
+        <div className='sidebar-bottom'>
+          <div className='upgrade-card'>
             <Sparkles size={17} />
             <p>Ready for Band 8+?</p>
             <span>Unlock AI writing feedback & full mock exams.</span>
-            <Link href="/dashboard/tests" onClick={onClose}>
+            <Link href='/dashboard/tests' onClick={onClose}>
               Explore plans →
             </Link>
           </div>
 
           <Link
-            href="/dashboard/settings"
+            href='/dashboard/settings'
             onClick={onClose}
             className={`nav-link ${pathname === '/dashboard/settings' ? 'active' : ''}`}
           >
@@ -125,7 +121,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
             <span>Settings</span>
           </Link>
 
-          <Link href="/login" onClick={onClose} className="nav-link logout-link">
+          <Link href='/login' onClick={onClose} className='nav-link logout-link'>
             <LogOut size={18} />
             <span>Log out</span>
           </Link>
