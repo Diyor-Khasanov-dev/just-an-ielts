@@ -5,7 +5,59 @@
 ▲ Next.js 16.3.5 (Turbopack)
 - Local:         http://localhost:3000
 - Network:       http://192.168.0.2:3000
-✓ Ready in 541ms
-✓ Running next.config.ts took 46ms
+✓ Ready in 555ms
+✓ Running next.config.ts took 43ms
 
- GET / 200 in 654ms (next.js: 276ms, application-code: 379ms)
+○ Compiling / ...
+ HEAD / 200 in 4.5s (next.js: 4.1s, application-code: 364ms)
+ GET / 200 in 113ms (next.js: 17ms, application-code: 96ms)
+ GET /dashboard/settings 200 in 1474ms (next.js: 1249ms, application-code: 225ms)
+[browser] Uncaught Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <LoadingBoundary name="/" loading={null}>
+      <HTTPAccessFallbackBoundary notFound={{...}} forbidden={undefined} unauthorized={undefined}>
+        <HTTPAccessFallbackErrorBoundary pathname="/dashboard..." notFound={{...}} forbidden={undefined} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <InnerLayoutRouter url="/dashboard..." tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} ...>
+                <SegmentViewNode type="layout" pagePath="dashboard/...">
+                  <SegmentTrieNode>
+                  <script>
+                  <DashboardLayout>
+                    <DashboardShell>
+                      <div className="dashboard-...">
+                        <Sidebar isOpen={false} onClose={function onClose}>
+                          <aside className={"sidebar "}>
+                            <div>
+                            <div className="sidebar-se...">
+                              <p>
++                               Рабочее пространство
+-                               Workspace
+                              ...
+                            ...
+                        ...
+              ...
+
+    at <unknown> (https://react.dev/link/hydration-mismatch)
+    at p (<anonymous>)
+    at Sidebar (components/Sidebar.tsx:71:11)
+    at DashboardShell (components/DashboardShell.tsx:12:7)
+    at DashboardLayout (app/dashboard/layout.tsx:2:95)
+  69 |
+  70 |         <div className='sidebar-section'>
+> 71 |           <p>{t.sidebar.workspace}</p>
+     |           ^
+  72 |           {mainLinks.map(({ href, label, icon: Icon }) => {
+  73 |             const isActive = pathname === href
+  74 |             return (

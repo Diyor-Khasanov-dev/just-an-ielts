@@ -18,32 +18,33 @@ import {
   Target,
   X
 } from 'lucide-react'
-import { AppMark } from './AppMark'
+import { useLanguage } from '@/context/LanguageContext'
 
 interface SidebarProps {
   isOpen?: boolean
   onClose?: () => void
 }
 
-const mainLinks = [
-  { href: '/dashboard', label: 'Overview', icon: LayoutDashboard },
-  { href: '/dashboard/practice', label: 'Practice hub', icon: Target },
-  { href: '/dashboard/tests', label: 'Mock tests', icon: BookOpen },
-  { href: '/dashboard/progress', label: 'My progress', icon: LineChart },
-  { href: '/dashboard/history-points', label: 'History & Points', icon: History },
-]
-
-const skillLinks = [
-  { href: '/dashboard/listening', label: 'Listening', icon: Headphones },
-  { href: '/dashboard/reading', label: 'Reading', icon: BookOpen },
-  { href: '/dashboard/writing', label: 'Writing', icon: PenLine },
-  { href: '/dashboard/speaking', label: 'Speaking', icon: Mic2 },
-  { href: '/dashboard/vocabulary', label: 'Vocabulary', icon: GraduationCap },
-  { href: '/dashboard/grammar', label: 'Grammar', icon: CheckCircle2 },
-]
-
 export function Sidebar({ isOpen, onClose }: SidebarProps) {
   const pathname = usePathname()
+  const { t } = useLanguage()
+
+  const mainLinks = [
+    { href: '/dashboard', label: t.sidebar.overview, icon: LayoutDashboard },
+    { href: '/dashboard/practice', label: t.sidebar.practiceHub, icon: Target },
+    { href: '/dashboard/tests', label: t.sidebar.mockTests, icon: BookOpen },
+    { href: '/dashboard/progress', label: t.sidebar.myProgress, icon: LineChart },
+    { href: '/dashboard/history-points', label: t.sidebar.historyPoints, icon: History },
+  ]
+
+  const skillLinks = [
+    { href: '/dashboard/listening', label: t.sidebar.listening, icon: Headphones },
+    { href: '/dashboard/reading', label: t.sidebar.reading, icon: BookOpen },
+    { href: '/dashboard/writing', label: t.sidebar.writing, icon: PenLine },
+    { href: '/dashboard/speaking', label: t.sidebar.speaking, icon: Mic2 },
+    { href: '/dashboard/vocabulary', label: t.sidebar.vocabulary, icon: GraduationCap },
+    { href: '/dashboard/grammar', label: t.sidebar.grammar, icon: CheckCircle2 },
+  ]
 
   return (
     <>
@@ -51,14 +52,14 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
       {isOpen && <div className='sidebar-overlay' onClick={onClose} aria-hidden='true' />}
 
       <aside className={`sidebar ${isOpen ? 'mobile-open' : ''}`}>
-        <div className='flex items-center justify-between'>
+        <div className='flex items-center justify-between mb-2'>
           <Link href='/dashboard'>
-            <img src='/logo.png' alt='' className='w-15 h-12' />
+            <img src='/logo.png' alt='' className='w-15 h-12 object-contain' />
           </Link>
           {onClose && (
             <button
               onClick={onClose}
-              className='p-1 rounded-lg text-gray-500 hover:bg-gray-100 sm:hidden'
+              className='p-1 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-slate-800 sm:hidden'
               aria-label='Close sidebar'
             >
               <X size={20} />
@@ -67,7 +68,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
         </div>
 
         <div className='sidebar-section'>
-          <p>Workspace</p>
+          <p>{t.sidebar.workspace}</p>
           {mainLinks.map(({ href, label, icon: Icon }) => {
             const isActive = pathname === href
             return (
@@ -85,7 +86,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
         </div>
 
         <div className='sidebar-section'>
-          <p>Skill Practice</p>
+          <p>{t.sidebar.skillPractice}</p>
           {skillLinks.map(({ href, label, icon: Icon }) => {
             const isActive = pathname === href
             return (
@@ -105,10 +106,10 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
         <div className='sidebar-bottom'>
           <div className='upgrade-card'>
             <Sparkles size={17} />
-            <p>Ready for Band 8+?</p>
-            <span>Unlock AI writing feedback & full mock exams.</span>
+            <p>{t.sidebar.readyForBand8}</p>
+            <span>{t.sidebar.unlockFeedback}</span>
             <Link href='/dashboard/tests' onClick={onClose}>
-              Explore plans →
+              {t.sidebar.explorePlans}
             </Link>
           </div>
 
@@ -118,12 +119,12 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
             className={`nav-link ${pathname === '/dashboard/settings' ? 'active' : ''}`}
           >
             <Settings size={18} />
-            <span>Settings</span>
+            <span>{t.sidebar.settings}</span>
           </Link>
 
           <Link href='/login' onClick={onClose} className='nav-link logout-link'>
             <LogOut size={18} />
-            <span>Log out</span>
+            <span>{t.sidebar.logout}</span>
           </Link>
         </div>
       </aside>
