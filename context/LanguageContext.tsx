@@ -17,13 +17,19 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [lang, setLangState] = useState<Language>('eng')
 
   useEffect(() => {
+    let timer: number | undefined
     try {
       const saved = localStorage.getItem(STORAGE_KEY) as Language
       if (saved && (saved === 'eng' || saved === 'uz' || saved === 'ru')) {
-        setLangState(saved)
+        // Defer the preference update until after hydration to avoid a cascading render.
+        timer = window.setTimeout(() => setLangState(saved), 0)
       }
     } catch {
       // localStorage read failed or SSR fallback
+    }
+
+    return () => {
+      if (timer !== undefined) window.clearTimeout(timer)
     }
   }, [])
 
