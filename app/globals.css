@@ -130,9 +130,10 @@ button, input, select, textarea {
 .nav-cta, .primary-action, .next-button, .submit-button {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 9px;
   background: var(--ink);
-  color: #fff !important;
+  color: #ffffff;
   border-radius: 12px;
   padding: 12px 18px;
   font-size: 14px;
@@ -786,7 +787,7 @@ footer {
   background: linear-gradient(135deg, #eef0ff, #f9f7ff);
   border: 1px solid #e0e2ff;
   border-radius: 14px;
-  color: #6871dd;
+  color: #4f46e5;
   font-size: 12px;
   margin-bottom: 13px;
 }
@@ -796,15 +797,20 @@ footer {
   margin: 9px 0 3px;
 }
 .upgrade-card span {
-  color: var(--muted);
+  color: #4b5563;
   font-size: 11px;
   display: block;
   line-height: 1.4;
 }
 .upgrade-card a {
-  display: block;
+  display: inline-block;
   margin-top: 11px;
   font-weight: 800;
+  color: #4338ca;
+  transition: color 0.15s;
+}
+.upgrade-card a:hover {
+  color: #312e81;
 }
 
 .dashboard-main {
@@ -1170,17 +1176,17 @@ footer {
 
 /* Responsive Breakpoints */
 @media(max-width: 800px) {
-  .landing-nav, .auth-header, .onboarding-header { padding: 20px; }
+  .landing-nav, .auth-header, .onboarding-header { padding: 16px 20px; }
   .landing-nav nav a:not(.nav-cta) { display: none; }
-  .hero, .auth-layout, .method { grid-template-columns: 1fr; gap: 45px; margin-top: 45px; }
-  .hero { margin-bottom: 65px; }
-  .hero-dashboard { max-width: 440px; width: 100%; margin: auto; }
+  .hero, .auth-layout, .method { grid-template-columns: 1fr; gap: 40px; margin-top: 32px; }
+  .hero { margin-bottom: 60px; }
+  .hero-dashboard { max-width: 100%; width: 100%; margin: auto; transform: none; }
   .landing-skills > div { grid-template-columns: 1fr 1fr; }
-  .method { padding-top: 60px; }
-  .auth-layout { margin: 35px auto; }
+  .method { padding-top: 50px; }
+  .auth-layout { margin: 24px auto; }
   .auth-intro { display: none; }
-  .auth-panel { max-width: 480px; width: 100%; margin: auto; }
-  .onboarding-wrap { margin: 55px auto; }
+  .auth-panel { max-width: 100%; width: 100%; margin: auto; }
+  .onboarding-wrap { margin: 40px auto; padding: 0 16px; }
 
   /* Mobile drawer sidebar */
   .sidebar {
@@ -1195,9 +1201,9 @@ footer {
     width: 100%;
     margin-left: 0;
   }
-  .dashboard-topbar { padding: 0 19px; }
+  .dashboard-topbar { padding: 0 16px; gap: 12px; }
   .top-search, .profile-copy, .profile-button > svg { display: none; }
-  .dashboard-content { padding: 28px 20px; }
+  .dashboard-content { padding: 24px 16px; }
   .skill-grid { grid-template-columns: 1fr 1fr; }
   .goal-banner { flex-wrap: wrap; }
   .goal-progress { flex: 1; min-width: 190px; }

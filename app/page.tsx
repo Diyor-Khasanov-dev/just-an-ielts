@@ -190,7 +190,7 @@ export default function Home() {
                 className={`px-5 py-2.5 rounded-full font-bold text-sm transition-all duration-200 cursor-pointer ${
                   targetBand === score
                     ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-200 scale-105'
-                    : 'bg-white text-gray-600 border border-gray-200 hover:border-indigo-300 hover:bg-indigo-50/50'
+                    : 'bg-white text-gray-700 border border-gray-200 hover:border-indigo-300 hover:bg-indigo-50/50 hover:text-indigo-700'
                 }`}
               >
                 Band {score.toFixed(1)}
@@ -252,7 +252,7 @@ export default function Home() {
                 className={`flex items-center gap-2 px-5 py-3 rounded-xl font-semibold text-sm transition-all cursor-pointer ${
                   isTabActive
                     ? 'bg-indigo-600 text-white shadow-md shadow-indigo-100'
-                    : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50'
+                    : 'bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 hover:text-indigo-700'
                 }`}
               >
                 <Icon size={18} />
@@ -292,18 +292,18 @@ export default function Home() {
 
           <div className='bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl p-6 text-white shadow-lg flex flex-col justify-between min-h-[220px]'>
             <div>
-              <p className='text-xs text-white! uppercase font-bold tracking-wider opacity-100'>
+              <p className='text-xs text-indigo-100 uppercase font-bold tracking-wider opacity-100'>
                 Skill Mastery Drills
               </p>
-              <h4 className='text-xl font-bold mt-1'>Start Practice Now</h4>
-              <p className='text-xs text-white! mt-2'>
+              <h4 className='text-xl font-bold mt-1 text-white'>Start Practice Now</h4>
+              <p className='text-xs text-indigo-100 mt-2 leading-relaxed'>
                 100+ authentic exercises calibrated against official IELTS band scoring standards.
               </p>
             </div>
 
             <Link
               href='/login'
-              className='mt-6 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-white/20 text-indigo-950 font-bold text-sm rounded-xl hover:bg-white/10 transition shadow'
+              className='mt-6 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-white text-indigo-950 font-extrabold text-sm rounded-xl hover:bg-gray-100 transition shadow-md'
             >
               Launch Practice Hub <ArrowRight size={16} />
             </Link>
@@ -410,16 +410,16 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className='mt-auto border-t border-gray-200 flex justify-between items-center w-full'>
-        <img src="/logo.png" alt="" className='w-15 h-12' />
-        <span>© 2026 just an ielts. Study with clarity and confidence.</span>
+      <footer className='mt-auto border-t border-gray-200 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left w-full py-6 px-6 max-w-[1100px] mx-auto'>
+        <img src="/logo.png" alt="just an ielts" className='w-15 h-12 object-contain' />
+        <span className='text-xs sm:text-sm text-gray-600'>© {new Date().getFullYear()} just an ielts. Study with clarity and confidence.</span>
         <div className='flex items-center gap-4'>
-          <Link href='/login' className='hover:text-indigo-600! transition'>
+          <Link href='/login' className='text-sm font-semibold text-gray-700 hover:text-indigo-600 transition'>
             Sign in
           </Link>
           <Link
             href='/onboarding'
-            className='bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-2xl text-white! transition'
+            className='bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-2xl text-white font-semibold text-sm transition shadow-sm'
           >
             Get started
           </Link>

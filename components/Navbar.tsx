@@ -18,10 +18,10 @@ export function Navbar({ onOpenMobileMenu }: NavbarProps) {
           <Menu size={22} />
         </button>
 
-        <div className="top-search">
-          <Search size={14} className="text-gray-400" />
-          <span>Search lessons, practice drills, or flashcards...</span>
-          <span className="hidden md:inline-block px-1.5 py-0.5 text-[10px] bg-gray-100 rounded text-gray-400 font-semibold border border-gray-200">
+      <div className="top-search flex-1 max-w-md">
+        <Search size={14} className="text-gray-400 shrink-0" />
+        <span className="truncate">Search lessons, practice drills, or flashcards...</span>
+        <span className="hidden md:inline-block px-1.5 py-0.5 text-[10px] bg-gray-100 rounded text-gray-400 font-semibold border border-gray-200 shrink-0">
             ⌘ K
           </span>
         </div>
