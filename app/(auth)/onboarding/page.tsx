@@ -2,16 +2,16 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { ArrowLeft, ArrowRight, Check, ChevronRight, Crown, Globe, Moon, Sparkles, Sun } from 'lucide-react'
-import { useTheme } from '@/context/ThemeContext'
+import { ArrowLeft, ArrowRight, Check, ChevronRight, Crown, Sparkles } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
+import { LanguageSelector } from '@/components/LanguageSelector'
+import { ThemeToggle } from '@/components/ThemeToggle'
 
 const goals = ['University admission', 'Work or migration', 'Personal development', 'Not sure yet']
 const dates = ['In less than 1 month', '1–3 months', '3–6 months', 'I have not booked yet']
 
 export default function Onboarding() {
-  const { theme, toggleTheme } = useTheme()
-  const { lang, setLang, t } = useLanguage()
+  const { t } = useLanguage()
 
   const [step, setStep] = useState(1)
   const [selected, setSelected] = useState(goals[0])
@@ -31,35 +31,8 @@ export default function Onboarding() {
           <img src='/logo.png' alt='' className='w-15 h-12 object-contain' />
         </Link>
         <div className='flex items-center gap-4'>
-          {/* Language Selector */}
-          <div className="flex items-center gap-1 bg-gray-100/80 dark:bg-slate-800/80 p-1 rounded-xl border border-gray-200 dark:border-slate-700">
-            <Globe size={14} className="text-gray-500 dark:text-slate-400 ml-1.5 hidden sm:block" />
-            {(['eng', 'uz', 'ru'] as const).map((code) => (
-              <button
-                key={code}
-                type="button"
-                onClick={() => setLang(code)}
-                className={`px-2 py-1 text-[11px] font-bold rounded-lg transition-all cursor-pointer ${
-                  lang === code
-                    ? 'bg-white dark:bg-indigo-600 text-indigo-600 dark:text-white shadow-xs'
-                    : 'text-gray-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-white'
-                }`}
-              >
-                {code.toUpperCase()}
-              </button>
-            ))}
-          </div>
-
-          {/* Theme Toggle Button */}
-          <button
-            type="button"
-            onClick={toggleTheme}
-            className="p-2 rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-gray-700 dark:text-slate-200 hover:bg-gray-50 dark:hover:bg-slate-700 transition cursor-pointer flex items-center justify-center"
-            title={`Switch to ${theme === 'light' ? 'Dark' : 'Light'} Mode`}
-            aria-label="Toggle theme"
-          >
-            {theme === 'light' ? <Moon size={16} /> : <Sun size={16} className="text-amber-400" />}
-          </button>
+          <LanguageSelector />
+          <ThemeToggle />
 
           <Link href='/login' className='hidden sm:block text-xs font-semibold'>
             Already have an account? <b className='text-indigo-600 hover:underline'>{t.nav.signIn}</b>

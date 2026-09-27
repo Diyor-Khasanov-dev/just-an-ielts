@@ -29,20 +29,22 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<Theme>('light')
 
   useEffect(() => {
+    let timer: number | undefined
     try {
       const saved = localStorage.getItem(STORAGE_KEY) as Theme
-      if (saved === 'dark' || saved === 'light') {
-        setThemeState(saved)
-        applyTheme(saved)
-      } else {
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-        if (prefersDark) {
-          setThemeState('dark')
-          applyTheme('dark')
-        }
-      }
+      const resolvedTheme = saved === 'dark' || saved === 'light'
+        ? saved
+        : window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+
+      applyTheme(resolvedTheme)
+      // Defer the visual-control update until after hydration to avoid a cascading render.
+      timer = window.setTimeout(() => setThemeState(resolvedTheme), 0)
     } catch {
       // Fallback
+    }
+
+    return () => {
+      if (timer !== undefined) window.clearTimeout(timer)
     }
   }, [])
 

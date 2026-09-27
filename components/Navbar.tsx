@@ -1,23 +1,16 @@
 'use client'
 
-import { Bell, ChevronDown, Globe, Menu, Moon, Search, Sparkles, Sun } from 'lucide-react'
-import { useTheme } from '@/context/ThemeContext'
+import { Bell, ChevronDown, Menu, Search, Sparkles } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
-import { Language } from '@/lib/i18n/translations'
+import { LanguageSelector } from './LanguageSelector'
+import { ThemeToggle } from './ThemeToggle'
 
 interface NavbarProps {
   onOpenMobileMenu?: () => void
 }
 
 export function Navbar({ onOpenMobileMenu }: NavbarProps) {
-  const { theme, toggleTheme } = useTheme()
-  const { lang, setLang, t } = useLanguage()
-
-  const languages: { code: Language; label: string }[] = [
-    { code: 'eng', label: 'ENG' },
-    { code: 'uz', label: 'UZ' },
-    { code: 'ru', label: 'RU' },
-  ]
+  const { t } = useLanguage()
 
   return (
     <header className="dashboard-topbar">
@@ -40,33 +33,8 @@ export function Navbar({ onOpenMobileMenu }: NavbarProps) {
       </div>
 
       <div className="top-actions">
-        {/* Language Selector */}
-        <div className="flex items-center gap-1 bg-gray-100/80 dark:bg-slate-800/80 p-1 rounded-xl border border-gray-200 dark:border-slate-700">
-          <Globe size={14} className="text-gray-500 dark:text-slate-400 ml-1.5 hidden sm:block" />
-          {languages.map(({ code, label }) => (
-            <button
-              key={code}
-              onClick={() => setLang(code)}
-              className={`px-2 py-1 text-[11px] font-bold rounded-lg transition-all cursor-pointer ${
-                lang === code
-                  ? 'bg-white dark:bg-indigo-600 text-indigo-600 dark:text-white shadow-xs'
-                  : 'text-gray-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-white'
-              }`}
-            >
-              {label}
-            </button>
-          ))}
-        </div>
-
-        {/* Theme Toggle Button */}
-        <button
-          onClick={toggleTheme}
-          className="p-2 rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-gray-700 dark:text-slate-200 hover:bg-gray-50 dark:hover:bg-slate-700 transition cursor-pointer flex items-center justify-center"
-          title={`Switch to ${theme === 'light' ? 'Dark' : 'Light'} Mode`}
-          aria-label="Toggle theme"
-        >
-          {theme === 'light' ? <Moon size={16} /> : <Sun size={16} className="text-amber-400" />}
-        </button>
+        <LanguageSelector />
+        <ThemeToggle />
 
         <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 bg-indigo-50/70 dark:bg-indigo-950/50 text-indigo-700 dark:text-indigo-300 rounded-full text-xs font-semibold border border-indigo-100 dark:border-indigo-900">
           <Sparkles size={14} className="text-indigo-500" />
