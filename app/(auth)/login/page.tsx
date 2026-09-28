@@ -25,8 +25,8 @@ export default function LoginPage() {
         <Link href='/'>
           <img src='/logo.png' alt='' className='w-15 h-12 object-contain' />
         </Link>
-        <div className='flex items-center gap-4'>
-          <LanguageSelector />
+        <div className='flex items-center gap-2 sm:gap-4'>
+          <LanguageSelector align='right' />
           <ThemeToggle />
 
           <p className="hidden sm:block text-xs">

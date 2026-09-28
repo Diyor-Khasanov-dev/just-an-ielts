@@ -9,12 +9,14 @@ import {
   CheckCircle2,
   Clock,
   Headphones,
+  Menu,
   Mic2,
   PenLine,
   Play,
   Sparkles,
   Star,
   Target,
+  X,
   Zap
 } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
@@ -26,6 +28,7 @@ export default function Home() {
 
   const [targetBand, setTargetBand] = useState<number>(7.5)
   const [activeTab, setActiveTab] = useState<'listening' | 'reading' | 'writing' | 'speaking'>('writing')
+  const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false)
 
   // Estimator data
   const estimatorMap: Record<number, { hours: string; duration: string; focus: string; difficulty: string }> = {
@@ -79,30 +82,94 @@ export default function Home() {
 
       {/* Sticky Glass Navbar */}
       <header className='landing-header-sticky'>
-        <div className='landing-nav'>
-          <img src="/logo.png" alt="" className='w-15 h-12 object-contain' />
-          <nav className='hidden md:flex items-center gap-6'>
-            <a href='#how' className='hover:text-indigo-600 dark:hover:text-indigo-400 transition'>
+        <div className='landing-nav flex items-center justify-between'>
+          <Link href='/' className='shrink-0'>
+            <img src="/logo.png" alt="just an ielts" className='w-15 h-12 object-contain' />
+          </Link>
+
+          {/* Desktop Navigation */}
+          <nav className='hidden md:flex items-center gap-5 lg:gap-6'>
+            <a href='#how' className='hover:text-indigo-600 dark:hover:text-indigo-400 transition font-medium text-sm'>
               {t.nav.howItWorks}
             </a>
-            <a href='#estimator' className='hover:text-indigo-600 dark:hover:text-indigo-400 transition'>
+            <a href='#estimator' className='hover:text-indigo-600 dark:hover:text-indigo-400 transition font-medium text-sm'>
               {t.nav.estimator}
             </a>
-            <a href='#skills' className='hover:text-indigo-600 dark:hover:text-indigo-400 transition'>
+            <a href='#skills' className='hover:text-indigo-600 dark:hover:text-indigo-400 transition font-medium text-sm'>
               {t.nav.skillsHub}
             </a>
-            <Link href='/login' className='hover:text-indigo-600 dark:hover:text-indigo-400 transition'>
+            <Link href='/login' className='hover:text-indigo-600 dark:hover:text-indigo-400 transition font-medium text-sm'>
               {t.nav.signIn}
             </Link>
 
-            <LanguageSelector />
+            <LanguageSelector align='right' />
             <ThemeToggle />
 
             <Link className='nav-cta' href='/login'>
               {t.nav.startLearning} <ArrowRight size={15} />
             </Link>
           </nav>
+
+          {/* Mobile controls & toggle */}
+          <div className='flex items-center gap-2 md:hidden'>
+            <LanguageSelector align='right' />
+            <ThemeToggle />
+            <button
+              onClick={() => setMobileNavOpen((prev) => !prev)}
+              className='p-2 text-gray-700 dark:text-slate-200 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-xl transition'
+              aria-label='Toggle navigation menu'
+              aria-expanded={mobileNavOpen}
+            >
+              {mobileNavOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
         </div>
+
+        {/* Mobile Navigation Drawer */}
+        {mobileNavOpen && (
+          <div className='md:hidden border-t border-gray-200/80 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl px-6 py-5 shadow-2xl space-y-4 animate-in slide-in-from-top duration-200'>
+            <nav className='flex flex-col gap-3 font-semibold text-sm'>
+              <a
+                href='#how'
+                onClick={() => setMobileNavOpen(false)}
+                className='py-2 text-gray-700 dark:text-slate-300 hover:text-indigo-600 transition'
+              >
+                {t.nav.howItWorks}
+              </a>
+              <a
+                href='#estimator'
+                onClick={() => setMobileNavOpen(false)}
+                className='py-2 text-gray-700 dark:text-slate-300 hover:text-indigo-600 transition'
+              >
+                {t.nav.estimator}
+              </a>
+              <a
+                href='#skills'
+                onClick={() => setMobileNavOpen(false)}
+                className='py-2 text-gray-700 dark:text-slate-300 hover:text-indigo-600 transition'
+              >
+                {t.nav.skillsHub}
+              </a>
+              <Link
+                href='/login'
+                onClick={() => setMobileNavOpen(false)}
+                className='py-2 text-gray-700 dark:text-slate-300 hover:text-indigo-600 transition'
+              >
+                {t.nav.signIn}
+              </Link>
+            </nav>
+
+            <div className='pt-3 border-t border-gray-100 dark:border-slate-800 flex items-center justify-between'>
+              <Link
+                className='nav-cta w-full text-center justify-center'
+                href='/login'
+                onClick={() => setMobileNavOpen(false)}
+              >
+                {t.nav.startLearning} <ArrowRight size={15} />
+              </Link>
+            </div>
+          </div>
+        )}
       </header>
 
       {/* Hero Section */}
