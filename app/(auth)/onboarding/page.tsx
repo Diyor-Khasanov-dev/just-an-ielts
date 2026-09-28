@@ -30,8 +30,8 @@ export default function Onboarding() {
         <Link href='/'>
           <img src='/logo.png' alt='' className='w-15 h-12 object-contain' />
         </Link>
-        <div className='flex items-center gap-4'>
-          <LanguageSelector />
+        <div className='flex items-center gap-2 sm:gap-4'>
+          <LanguageSelector align='right' />
           <ThemeToggle />
 
           <Link href='/login' className='hidden sm:block text-xs font-semibold'>
