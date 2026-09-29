@@ -12,6 +12,8 @@ import {
   LineChart,
   LogOut,
   Mic2,
+  PanelLeftClose,
+  PanelLeftOpen,
   PenLine,
   Settings,
   Sparkles,
@@ -22,10 +24,12 @@ import { useLanguage } from '@/context/LanguageContext'
 
 interface SidebarProps {
   isOpen?: boolean
+  isCollapsed?: boolean
   onClose?: () => void
+  onToggleCollapse?: () => void
 }
 
-export function Sidebar({ isOpen, onClose }: SidebarProps) {
+export function Sidebar({ isOpen, isCollapsed, onClose, onToggleCollapse }: SidebarProps) {
   const pathname = usePathname()
   const { t } = useLanguage()
 
@@ -51,10 +55,10 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
       {/* Mobile backdrop */}
       {isOpen && <div className='sidebar-overlay' onClick={onClose} aria-hidden='true' />}
 
-      <aside className={`sidebar ${isOpen ? 'mobile-open' : ''}`}>
-        <div className='flex items-center justify-between mb-2'>
-          <Link href='/dashboard'>
-            <img src='/logo.png' alt='' className='w-15 h-12 object-contain' />
+      <aside className={`sidebar ${isOpen ? 'mobile-open' : ''} ${isCollapsed ? 'collapsed' : ''}`}>
+        <div className='flex items-center justify-between mb-2 sidebar-header'>
+          <Link href='/dashboard' className='flex items-center overflow-hidden'>
+            <img src='/logo.png' alt='Logo' className='w-15 h-12 object-contain shrink-0' />
           </Link>
           {onClose && (
             <button
@@ -65,10 +69,20 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
               <X size={20} />
             </button>
           )}
+          {onToggleCollapse && (
+            <button
+              onClick={onToggleCollapse}
+              className='p-1.5 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-slate-800 hidden sm:flex items-center justify-center transition-colors shrink-0'
+              aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+              title={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+            >
+              {isCollapsed ? <PanelLeftOpen size={18} /> : <PanelLeftClose size={18} />}
+            </button>
+          )}
         </div>
 
         <div className='sidebar-section'>
-          <p>{t.sidebar.workspace}</p>
+          <p className='section-label'>{t.sidebar.workspace}</p>
           {mainLinks.map(({ href, label, icon: Icon }) => {
             const isActive = pathname === href
             return (
@@ -76,17 +90,18 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                 key={href}
                 href={href}
                 onClick={onClose}
+                title={label}
                 className={`nav-link ${isActive ? 'active' : ''}`}
               >
-                <Icon size={18} />
-                <span>{label}</span>
+                <Icon size={18} className='shrink-0' />
+                <span className='nav-text'>{label}</span>
               </Link>
             )
           })}
         </div>
 
         <div className='sidebar-section'>
-          <p>{t.sidebar.skillPractice}</p>
+          <p className='section-label'>{t.sidebar.skillPractice}</p>
           {skillLinks.map(({ href, label, icon: Icon }) => {
             const isActive = pathname === href
             return (
@@ -94,10 +109,11 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                 key={href}
                 href={href}
                 onClick={onClose}
+                title={label}
                 className={`nav-link ${isActive ? 'active' : ''}`}
               >
-                <Icon size={18} />
-                <span>{label}</span>
+                <Icon size={18} className='shrink-0' />
+                <span className='nav-text'>{label}</span>
               </Link>
             )
           })}
@@ -116,15 +132,21 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           <Link
             href='/dashboard/settings'
             onClick={onClose}
+            title={t.sidebar.settings}
             className={`nav-link ${pathname === '/dashboard/settings' ? 'active' : ''}`}
           >
-            <Settings size={18} />
-            <span>{t.sidebar.settings}</span>
+            <Settings size={18} className='shrink-0' />
+            <span className='nav-text'>{t.sidebar.settings}</span>
           </Link>
 
-          <Link href='/login' onClick={onClose} className='nav-link logout-link'>
-            <LogOut size={18} />
-            <span>{t.sidebar.logout}</span>
+          <Link
+            href='/login'
+            onClick={onClose}
+            title={t.sidebar.logout}
+            className='nav-link logout-link'
+          >
+            <LogOut size={18} className='shrink-0' />
+            <span className='nav-text'>{t.sidebar.logout}</span>
           </Link>
         </div>
       </aside>

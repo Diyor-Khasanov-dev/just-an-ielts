@@ -1,26 +1,28 @@
 'use client'
 
-import { Bell, ChevronDown, Menu, Search, Sparkles } from 'lucide-react'
+import { Bell, ChevronDown, PanelLeftClose, PanelLeftOpen, Search, Sparkles } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
 import { LanguageSelector } from './LanguageSelector'
 import { ThemeToggle } from './ThemeToggle'
 
 interface NavbarProps {
-  onOpenMobileMenu?: () => void
+  onToggleSidebar?: () => void
+  isCollapsed?: boolean
 }
 
-export function Navbar({ onOpenMobileMenu }: NavbarProps) {
+export function Navbar({ onToggleSidebar, isCollapsed }: NavbarProps) {
   const { t } = useLanguage()
 
   return (
     <header className="dashboard-topbar">
       <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
         <button
-          className="mobile-menu"
-          onClick={onOpenMobileMenu}
-          aria-label="Open navigation menu"
+          className="sidebar-toggle-btn p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors flex items-center justify-center shrink-0"
+          onClick={onToggleSidebar}
+          aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+          title={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
         >
-          <Menu size={22} />
+          {isCollapsed ? <PanelLeftOpen size={20} /> : <PanelLeftClose size={20} />}
         </button>
 
         <div className="top-search flex-1 max-w-xs sm:max-w-sm md:max-w-md">
