@@ -186,6 +186,30 @@ export interface Translations {
     recentActivity: string
     history: string
   }
+  // 404 Not Found
+  notFound: {
+    eyebrow: string
+    title: string
+    titleEm: string
+    subtitle: string
+    backHome: string
+    continuePracticing: string
+    lookingForPage: string
+    mainNav: string
+    targetBand: string
+    unexpectedQuestion: string
+    findingNextStep: string
+    keepGoing: string
+    nextQuestion: string
+    oneWrongAnswer: string
+    disclaimer: string
+  }
+  // Loading
+  loading: {
+    loadingWorkspace: string
+    preparingSession: string
+    pleaseWait: string
+  }
 }
 
 export const translations: Record<Language, Translations> = {
@@ -367,6 +391,28 @@ export const translations: Record<Language, Translations> = {
       recentActivity: 'Recent activity',
       history: 'History',
     },
+    notFound: {
+      eyebrow: 'PAGE NOT FOUND',
+      title: 'Not every answer',
+      titleEm: 'is the right one.',
+      subtitle: "Looks like this page didn't make the cut. It may have moved, been removed, or the URL may be incorrect.",
+      backHome: 'Back to home',
+      continuePracticing: 'Continue practicing',
+      lookingForPage: 'Looking for a page?',
+      mainNav: 'Try using the top or side navigation',
+      targetBand: 'Your Target Band',
+      unexpectedQuestion: 'Unexpected Question',
+      findingNextStep: 'Finding your next study step',
+      keepGoing: 'Keep going',
+      nextQuestion: 'Next question →',
+      oneWrongAnswer: "One wrong answer doesn't end the test.",
+      disclaimer: 'Practice tests are independently built and not affiliated with IDP, British Council, or Cambridge.',
+    },
+    loading: {
+      loadingWorkspace: 'Loading your workspace...',
+      preparingSession: 'Preparing your personalized study session',
+      pleaseWait: 'Please wait a moment',
+    },
   },
 
   uz: {
@@ -547,6 +593,28 @@ export const translations: Record<Language, Translations> = {
       recentActivity: 'So‘nggi faoliyat',
       history: 'Tarix',
     },
+    notFound: {
+      eyebrow: 'SAHIFA TOPILMADI',
+      title: 'Har bir javob ham',
+      titleEm: 'to‘g‘ri bo‘lavermaydi.',
+      subtitle: "Aftidan, bu sahifa mavjud emas. U ko‘chirilgan, o‘chirilgan yoki havola xato kiritilgan bo‘lishi mumkin.",
+      backHome: 'Bosh sahifaga qaytish',
+      continuePracticing: 'Mashqni davom ettirish',
+      lookingForPage: 'Sahifani qidiryapsizmi?',
+      mainNav: 'Asosiy menyudan foydalanib ko‘ring',
+      targetBand: 'Maqsadli Ballingiz',
+      unexpectedQuestion: 'Kutilmagan Savol',
+      findingNextStep: 'Keyingi bosqich tayyorlanmoqda',
+      keepGoing: 'Davom eting',
+      nextQuestion: 'Keyingi savol →',
+      oneWrongAnswer: "Bitta xato javob bilan imtihon tugamaydi.",
+      disclaimer: 'Amaliyot testlari mustaqil yaratilgan va IDP, British Council yoki Cambridge bilan bog‘liq emas.',
+    },
+    loading: {
+      loadingWorkspace: 'Ish maydoni yuklanmoqda...',
+      preparingSession: 'Shaxsiy o‘quv mashg‘ulotingiz tayyorlanmoqda',
+      pleaseWait: 'Biroz kuting',
+    },
   },
 
   ru: {
@@ -726,6 +794,28 @@ export const translations: Record<Language, Translations> = {
       beginWritingTask: 'Начать задание Writing',
       recentActivity: 'Недавняя активность',
       history: 'История',
+    },
+    notFound: {
+      eyebrow: 'СТРАНИЦА НЕ НАЙДЕНА',
+      title: 'Не каждый ответ',
+      titleEm: 'бывает правильным.',
+      subtitle: 'Похоже, эта страница недоступна. Возможно, она была перемещена, удалена или адрес указан неверно.',
+      backHome: 'Вернуться на главную',
+      continuePracticing: 'Продолжить практику',
+      lookingForPage: 'Ищете нужный раздел?',
+      mainNav: 'Воспользуйтесь основным меню навигации',
+      targetBand: 'Ваш Целевой Балл',
+      unexpectedQuestion: 'Неожиданный Вопрос',
+      findingNextStep: 'Подбираем следующий шаг',
+      keepGoing: 'Продолжайте путь',
+      nextQuestion: 'Следующий вопрос →',
+      oneWrongAnswer: 'Одна ошибка — это еще не конец теста.',
+      disclaimer: 'Практические тесты разработаны независимо и не связаны с IDP, British Council или Cambridge.',
+    },
+    loading: {
+      loadingWorkspace: 'Загрузка рабочего пространства...',
+      preparingSession: 'Подготовка персонального занятия',
+      pleaseWait: 'Пожалуйста, подождите',
     },
   },
 }
