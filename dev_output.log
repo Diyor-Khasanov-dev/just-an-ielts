@@ -5,17 +5,9 @@
 ▲ Next.js 16.3.5 (Turbopack)
 - Local:         http://localhost:3000
 - Network:       http://192.168.0.2:3000
-✓ Ready in 570ms
-✓ Running next.config.ts took 50ms
+✓ Ready in 539ms
+✓ Running next.config.ts took 42ms
 
-○ Compiling /dashboard ...
- GET /dashboard 200 in 6.2s (next.js: 5.6s, application-code: 623ms)
- GET / 200 in 998ms (next.js: 872ms, application-code: 126ms)
- GET /dashboard 200 in 93ms (next.js: 5ms, application-code: 88ms)
- GET / 200 in 82ms (next.js: 5ms, application-code: 77ms)
- GET /dashboard 200 in 92ms (next.js: 4ms, application-code: 88ms)
- GET / 200 in 86ms (next.js: 4ms, application-code: 82ms)
- GET /dashboard 200 in 84ms (next.js: 4ms, application-code: 80ms)
- GET / 200 in 65ms (next.js: 4ms, application-code: 61ms)
- GET /dashboard 200 in 91ms (next.js: 11ms, application-code: 80ms)
- GET / 200 in 64ms (next.js: 6ms, application-code: 58ms)
+○ Compiling / ...
+ HEAD / 200 in 4.3s (next.js: 3.8s, application-code: 445ms)
+ GET /non-existent-page-path-test 404 in 1305ms (next.js: 1208ms, application-code: 97ms)
