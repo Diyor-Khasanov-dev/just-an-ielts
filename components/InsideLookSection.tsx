@@ -138,7 +138,6 @@ export function InsideLookSection({ className = '' }: InsideLookSectionProps) {
         <div className='absolute -right-10 -bottom-10 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none' />
         <div className='space-y-2 max-w-xl relative z-10'>
           <div className='inline-flex items-center gap-2 px-3 py-1 bg-indigo-500/20 rounded-full text-indigo-300 text-xs font-bold uppercase tracking-wider mb-1 border border-indigo-400/30'>
-            <Sparkles size={14} className='text-amber-400' />
             <span>Interactive Experience</span>
           </div>
           <h3 className='text-2xl sm:text-3xl font-extrabold text-white tracking-tight'>
@@ -152,7 +151,7 @@ export function InsideLookSection({ className = '' }: InsideLookSectionProps) {
         <div className='relative z-10 shrink-0'>
           <Link
             href='/login'
-            className='inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-white text-indigo-950 hover:bg-gray-100 font-black text-base rounded-2xl transition shadow-xl hover:scale-105 active:scale-95 cursor-pointer'
+            className='inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-white text-indigo-950! hover:bg-gray-100 font-black text-base rounded-2xl transition shadow-xl hover:scale-105 active:scale-95 cursor-pointer'
           >
             <span>{ins.tryItYourself || 'Try It Yourself'}</span>
             <ArrowRight size={20} className='text-indigo-600' />

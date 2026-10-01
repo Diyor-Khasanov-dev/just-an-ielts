@@ -301,7 +301,8 @@ export const translations: Record<Language, Translations> = {
       verifiedLearner: 'Verified Learner',
     },
     footer: {
-      rights: '© ' + new Date().getFullYear() + ' just an ielts. Study with clarity and confidence.',
+      rights:
+        '© ' + new Date().getFullYear() + ' just an ielts. Study with clarity and confidence.',
     },
     sidebar: {
       workspace: 'Workspace',
@@ -394,7 +395,7 @@ export const translations: Record<Language, Translations> = {
       subtitle: 'Here is a clear path towards your target band.',
       startPractice: 'Start a practice',
       overallReadiness: 'Overall readiness',
-      awayFromTarget: 'away. Keep this week\'s streak going.',
+      awayFromTarget: "away. Keep this week's streak going.",
       viewProgress: 'View progress',
       continueLeftOff: 'Continue where you left off',
       shortFocusedPractice: 'Short, focused practice that fits your day.',
@@ -414,7 +415,8 @@ export const translations: Record<Language, Translations> = {
       eyebrow: 'PAGE NOT FOUND',
       title: 'Not every answer',
       titleEm: 'is the right one.',
-      subtitle: "Looks like this page didn't make the cut. It may have moved, been removed, or the URL may be incorrect.",
+      subtitle:
+        "Looks like this page didn't make the cut. It may have moved, been removed, or the URL may be incorrect.",
       backHome: 'Back to home',
       continuePracticing: 'Continue practicing',
       lookingForPage: 'Looking for a page?',
@@ -425,11 +427,12 @@ export const translations: Record<Language, Translations> = {
       keepGoing: 'Keep going',
       nextQuestion: 'Next question →',
       oneWrongAnswer: "One wrong answer doesn't end the test.",
-      disclaimer: 'Practice tests are independently built and not affiliated with IDP, British Council, or Cambridge.',
+      disclaimer:
+        'Practice tests are independently built and not affiliated with IDP, British Council, or Cambridge.',
     },
     insideLook: {
       eyebrow: 'INSIDE THE PLATFORM',
-      title: 'Take a look inside JUST AN IELTS',
+      title: 'Take a look inside',
       subtitle:
         'Explore the actual tools, interactive modules, and diagnostic feedback systems built to get you to your target band score.',
       tryItYourself: 'Try It Yourself',
@@ -597,8 +600,7 @@ export const translations: Record<Language, Translations> = {
     settings: {
       eyebrow: 'AFZALLIKLAR VA MAQSADLAR',
       title: 'Sozlamalar',
-      subtitle:
-        'Maqsadli ballingizni, imtihon sanasini, kunlik eslatmalarni va tilni sozlang.',
+      subtitle: 'Maqsadli ballingizni, imtihon sanasini, kunlik eslatmalarni va tilni sozlang.',
       tabProfile: 'Profil va Maqsad',
       tabReminders: 'Eslatmalar',
       tabSecurity: 'Xavfsizlik',
@@ -644,7 +646,8 @@ export const translations: Record<Language, Translations> = {
       eyebrow: 'SAHIFA TOPILMADI',
       title: 'Har bir javob ham',
       titleEm: 'to‘g‘ri bo‘lavermaydi.',
-      subtitle: "Aftidan, bu sahifa mavjud emas. U ko‘chirilgan, o‘chirilgan yoki havola xato kiritilgan bo‘lishi mumkin.",
+      subtitle:
+        'Aftidan, bu sahifa mavjud emas. U ko‘chirilgan, o‘chirilgan yoki havola xato kiritilgan bo‘lishi mumkin.',
       backHome: 'Bosh sahifaga qaytish',
       continuePracticing: 'Mashqni davom ettirish',
       lookingForPage: 'Sahifani qidiryapsizmi?',
@@ -654,15 +657,16 @@ export const translations: Record<Language, Translations> = {
       findingNextStep: 'Keyingi bosqich tayyorlanmoqda',
       keepGoing: 'Davom eting',
       nextQuestion: 'Keyingi savol →',
-      oneWrongAnswer: "Bitta xato javob bilan imtihon tugamaydi.",
-      disclaimer: 'Amaliyot testlari mustaqil yaratilgan va IDP, British Council yoki Cambridge bilan bog‘liq emas.',
+      oneWrongAnswer: 'Bitta xato javob bilan imtihon tugamaydi.',
+      disclaimer:
+        'Amaliyot testlari mustaqil yaratilgan va IDP, British Council yoki Cambridge bilan bog‘liq emas.',
     },
     insideLook: {
       eyebrow: 'PLATFORMA ICHIDA',
-      title: 'Take a look inside JUST AN IELTS',
+      title: 'Platformaga Nazar Soling',
       subtitle:
         'Maqsadli ballingizga erishishingiz uchun yaratilgan haqiqiy vositalar, interaktiv modullar va AI tahlil tizimlarini ko‘ring.',
-      tryItYourself: 'Try It Yourself',
+      tryItYourself: "Sinab ko'ring",
       feature1Title: 'Zudlik bilan AI Tahlili',
       feature1Desc:
         'Writing va Speaking bo‘yicha mezonlarga mos onlayn baholash, xatolar tahlili va Band 9 namunalari.',
@@ -827,8 +831,7 @@ export const translations: Record<Language, Translations> = {
     settings: {
       eyebrow: 'ПРЕДПОЧТЕНИЯ И ЦЕЛИ',
       title: 'Настройки',
-      subtitle:
-        'Настройте целевой балл, дату экзамена, напоминания и языковые предпочтения.',
+      subtitle: 'Настройте целевой балл, дату экзамена, напоминания и языковые предпочтения.',
       tabProfile: 'Профиль и Цель',
       tabReminders: 'Напоминания',
       tabSecurity: 'Безопасность',
@@ -874,7 +877,8 @@ export const translations: Record<Language, Translations> = {
       eyebrow: 'СТРАНИЦА НЕ НАЙДЕНА',
       title: 'Не каждый ответ',
       titleEm: 'бывает правильным.',
-      subtitle: 'Похоже, эта страница недоступна. Возможно, она была перемещена, удалена или адрес указан неверно.',
+      subtitle:
+        'Похоже, эта страница недоступна. Возможно, она была перемещена, удалена или адрес указан неверно.',
       backHome: 'Вернуться на главную',
       continuePracticing: 'Продолжить практику',
       lookingForPage: 'Ищете нужный раздел?',
@@ -885,14 +889,15 @@ export const translations: Record<Language, Translations> = {
       keepGoing: 'Продолжайте путь',
       nextQuestion: 'Следующий вопрос →',
       oneWrongAnswer: 'Одна ошибка — это еще не конец теста.',
-      disclaimer: 'Практические тесты разработаны независимо и не связаны с IDP, British Council или Cambridge.',
+      disclaimer:
+        'Практические тесты разработаны независимо и не связаны с IDP, British Council или Cambridge.',
     },
     insideLook: {
       eyebrow: 'ВНУТРИ ПЛАТФОРМЫ',
-      title: 'Take a look inside JUST AN IELTS',
+      title: 'Заглянуть Внутрь',
       subtitle:
         'Ознакомьтесь с реальными инструментами, интерактивными модулями и диагностикой ИИ для достижения вашего целевого балла.',
-      tryItYourself: 'Try It Yourself',
+      tryItYourself: 'Попробуйте Cами',
       feature1Title: 'Мгновенная ИИ-Диагностика Критериев',
       feature1Desc:
         'Анализ Task Achievement, Coherence, Lexical Resource и Grammar для Writing и Speaking в реальном времени.',
