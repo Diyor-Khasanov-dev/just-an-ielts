@@ -21,6 +21,7 @@ import {
 } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
 import { LanguageSelector } from '@/components/LanguageSelector'
+import { ValuePropositionSection } from '@/components/ValuePropositionSection'
 
 export default function Home() {
   const { t } = useLanguage()
@@ -97,6 +98,9 @@ export default function Home() {
             <a href='#skills' className='hover:text-indigo-600! transition font-medium text-sm'>
               {t.nav.skillsHub}
             </a>
+            <a href='#value-prop' className='hover:text-indigo-600! transition font-medium text-sm'>
+              {t.valueProp?.tabRoi || 'ROI & Value'}
+            </a>
             <Link href='/login' className='hover:text-indigo-600! transition font-medium text-sm'>
               {t.nav.signIn}
             </Link>
@@ -146,6 +150,13 @@ export default function Home() {
                 className='py-2 text-gray-700 hover:text-indigo-600 transition'
               >
                 {t.nav.skillsHub}
+              </a>
+              <a
+                href='#value-prop'
+                onClick={() => setMobileNavOpen(false)}
+                className='py-2 text-gray-700 hover:text-indigo-600 transition'
+              >
+                {t.valueProp?.tabRoi || 'ROI & Value'}
               </a>
               <Link
                 href='/login'
@@ -377,6 +388,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Value Proposition, Deliverables & ROI Section */}
+      <ValuePropositionSection showCta={true} />
 
       {/* Storytelling Methodology Section */}
       <section id='how' className='method'>

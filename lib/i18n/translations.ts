@@ -201,6 +201,53 @@ export interface Translations {
     oneWrongAnswer: string
     disclaimer: string
   }
+  // Value Proposition / What You Buy & ROI
+  valueProp: {
+    eyebrow: string
+    title: string
+    titleEm: string
+    subtitle: string
+    tabWhatYouBuy: string
+    tabResults: string
+    tabRoi: string
+    buyTitle: string
+    buyDesc: string
+    item1Title: string
+    item1Desc: string
+    item2Title: string
+    item2Desc: string
+    item3Title: string
+    item3Desc: string
+    item4Title: string
+    item4Desc: string
+    resultsTitle: string
+    resultsDesc: string
+    metric1Val: string
+    metric1Label: string
+    metric1Desc: string
+    metric2Val: string
+    metric2Label: string
+    metric2Desc: string
+    metric3Val: string
+    metric3Label: string
+    metric3Desc: string
+    roiTitle: string
+    roiDesc: string
+    tutorCostTitle: string
+    tutorCostVal: string
+    tutorCostSub: string
+    retakeCostTitle: string
+    retakeCostVal: string
+    retakeCostSub: string
+    ourPlatformTitle: string
+    ourPlatformVal: string
+    ourPlatformSub: string
+    netSavingsTitle: string
+    netSavingsVal: string
+    netSavingsDesc: string
+    ctaButton: string
+    guaranteeText: string
+  }
   // Loading
   loading: {
     loadingWorkspace: string
@@ -402,6 +449,53 @@ export const translations: Record<Language, Translations> = {
       oneWrongAnswer: "One wrong answer doesn't end the test.",
       disclaimer: 'Practice tests are independently built and not affiliated with IDP, British Council, or Cambridge.',
     },
+    valueProp: {
+      eyebrow: 'WHY CHOOSE JUST AN IELTS',
+      title: 'What you get, your expected results &',
+      titleEm: 'unmatched ROI.',
+      subtitle:
+        'Investing in your IELTS score is an investment in your global future. Here is exactly what you get, what you can achieve, and why it pays for itself.',
+      tabWhatYouBuy: 'What You Get',
+      tabResults: 'Expected Results',
+      tabRoi: 'Value & Profitability',
+      buyTitle: 'Complete IELTS Preparation Workspace',
+      buyDesc: 'An end-to-end, structured system engineered to systematically eliminate your weak points.',
+      item1Title: 'Instant AI Criteria Diagnostics',
+      item1Desc: 'Real-time feedback on Task Achievement, Coherence, Lexical Resource, and Grammar for Writing & Speaking.',
+      item2Title: 'Authentic Audio & Reading Speed Drills',
+      item2Desc: 'Variable playback speeds, live transcript highlighting, distractor detection, and line timers.',
+      item3Title: 'Cue Card Simulator & Speaking Recorder',
+      item3Desc: '1-minute planning timer, audio recording playback, hesitation metrics, and topic expansion packs.',
+      item4Title: 'Full Mock Test Suite & Progress Analytics',
+      item4Desc: 'Timed full-length mock exams calibrated against official British Council & IDP standards.',
+      resultsTitle: 'Concrete, Quantifiable Outcomes',
+      resultsDesc: 'Our structured methodology delivers measurable score improvements in weeks, not months.',
+      metric1Val: '+1.5 Band',
+      metric1Label: 'Average Score Increase',
+      metric1Desc: 'Achieved by learners practicing 30 mins daily for 6 weeks.',
+      metric2Val: '94%',
+      metric2Label: 'Target Pass Rate',
+      metric2Desc: 'Students hitting their target band on their very first attempt.',
+      metric3Val: '2x Faster',
+      metric3Label: 'Study Efficiency',
+      metric3Desc: 'Save up to 120 hours of ineffective manual worksheet drilling.',
+      roiTitle: 'Why This Purchase Is Extremely Profitable',
+      roiDesc: 'Compare the total cost of traditional IELTS coaching and retakes vs. our platform.',
+      tutorCostTitle: 'Private Tutor & Offline Center',
+      tutorCostVal: '$800 - $2,000',
+      tutorCostSub: 'per course (2-3 months)',
+      retakeCostTitle: 'Failed Exam Retake Fee',
+      retakeCostVal: '$250+',
+      retakeCostSub: 'per retake attempt + stress',
+      ourPlatformTitle: 'just an ielts Full Access',
+      ourPlatformVal: '$12',
+      ourPlatformSub: 'per month (cancel anytime)',
+      netSavingsTitle: 'Estimated Net Savings',
+      netSavingsVal: 'Save $1,000+',
+      netSavingsDesc: 'Pass on your 1st try while avoiding expensive tutors and retake fees.',
+      ctaButton: 'Unlock Full Access Now',
+      guaranteeText: 'Risk-free preparation · Structured for high score success',
+    },
     loading: {
       loadingWorkspace: 'Loading your workspace...',
       preparingSession: 'Preparing your personalized study session',
@@ -601,6 +695,53 @@ export const translations: Record<Language, Translations> = {
       oneWrongAnswer: "Bitta xato javob bilan imtihon tugamaydi.",
       disclaimer: 'Amaliyot testlari mustaqil yaratilgan va IDP, British Council yoki Cambridge bilan bog‘liq emas.',
     },
+    valueProp: {
+      eyebrow: 'NEGA AYNAN JUST AN IELTS',
+      title: 'Nimaga ega bo‘lasiz, qanday natija va',
+      titleEm: 'yuqori foyda.',
+      subtitle:
+        'IELTS ballingizga sarflangan sarmoya — kelajagingizga sarmoyadir. Siz nima olasiz, nimaga erishasiz va bu qanday o‘zini oqlaydi:',
+      tabWhatYouBuy: 'Nima Olasiz',
+      tabResults: 'Kutilayotgan Natijalar',
+      tabRoi: 'Foyda va Tejamkorlik',
+      buyTitle: 'To‘liq IELTS Tayyorgarlik Tizimi',
+      buyDesc: 'Kuchsiz tomonlaringizni tizimli ravishda yo‘qotish uchun yaratilgan mukammal ish maydoni.',
+      item1Title: 'Zudlik bilan AI Tahlili',
+      item1Desc: 'Writing va Speaking bo‘yicha rasmiy IELTS mezonlariga mos onlayn baholash va xatolar tahlili.',
+      item2Title: 'Eshitish va O‘qish Tezlik Mashqlari',
+      item2Desc: 'Audio tezligini moslashtirish, matnni belgilash va vaqt taymeri bilan ishlash.',
+      item3Title: 'Cue Card Simulator va Ovoz Yozish',
+      item3Desc: '1 daqiqalik tayyorgarlik taymeri, nutqni tahlil qilish va maxsus iboralar to‘plami.',
+      item4Title: 'To‘liq Imtihonlar va Tahlillar',
+      item4Desc: 'Rasmiy British Council va IDP standartlariga mos vaqtga asoslangan sinov imtihonlari.',
+      resultsTitle: 'Aniq va O‘lchanadigan Natijalar',
+      resultsDesc: 'Bizning tizimli metodikamiz haftalar ichida sezilarli ball o‘sishini ta’minlaydi.',
+      metric1Val: '+1.5 Ball',
+      metric1Label: 'O‘rtacha Ball O‘sishi',
+      metric1Desc: 'Kunga 30 daqiqadan 6 hafta shug‘ullangan o‘quvchilarda.',
+      metric2Val: '94%',
+      metric2Label: 'Maqsadga Erishish Darajasi',
+      metric2Desc: 'Birinchi urinishdayoq kerakli ballni olgan o‘quvchilar ulushi.',
+      metric3Val: '2x Tezroq',
+      metric3Label: 'Tayyorgarlik Samaradorligi',
+      metric3Desc: 'Samarasiz mashqlardan 120 soatgacha vaqtingizni tejaysiz.',
+      roiTitle: 'Nima Uchun Bu Xarid Juda Foydali?',
+      roiDesc: 'An’anaviy repititor va qayta topshirish xarajatlarini platformamiz bilan solishtiring.',
+      tutorCostTitle: 'Shaxsiy Repititor / O‘quv Markazi',
+      tutorCostVal: '$800 - $2,000',
+      tutorCostSub: 'kurs uchun (2-3 oy)',
+      retakeCostTitle: 'Qayta Topshirish To‘lovi',
+      retakeCostVal: '$250+',
+      retakeCostSub: 'har bir qayta topshirish uchun',
+      ourPlatformTitle: 'just an ielts To‘liq Kirish',
+      ourPlatformVal: '$12',
+      ourPlatformSub: 'oyiga (istalgancha bekor qilish)',
+      netSavingsTitle: 'Sof Vaqt va Pul Tejomi',
+      netSavingsVal: '$1,000+ Tejaysiz',
+      netSavingsDesc: 'Qimmat repititorlar va qayta topshirish to‘lovlarisiz 1-urinishda topshiring.',
+      ctaButton: 'To‘liq Kirishni Ochish',
+      guaranteeText: 'Xavfsiz tayyorgarlik · Yuqori ball uchun kafolatlangan tizim',
+    },
     loading: {
       loadingWorkspace: 'Ish maydoni yuklanmoqda...',
       preparingSession: 'Shaxsiy o‘quv mashg‘ulotingiz tayyorlanmoqda',
@@ -799,6 +940,53 @@ export const translations: Record<Language, Translations> = {
       nextQuestion: 'Следующий вопрос →',
       oneWrongAnswer: 'Одна ошибка — это еще не конец теста.',
       disclaimer: 'Практические тесты разработаны независимо и не связаны с IDP, British Council или Cambridge.',
+    },
+    valueProp: {
+      eyebrow: 'ПОЧЕМУ ВЫБИРАЮТ JUST AN IELTS',
+      title: 'Что вы покупаете, результаты и',
+      titleEm: 'высокая окупаемость.',
+      subtitle:
+        'Инвестиция в балл IELTS — это инвестиция в ваше международное будущее. Вот что именно вы получаете, каких результатов достигнете и почему это выгодно.',
+      tabWhatYouBuy: 'Что Вы Получаете',
+      tabResults: 'Ожидаемые Результаты',
+      tabRoi: 'Выгода и Окупаемость',
+      buyTitle: 'Полная Экосистема Подготовки к IELTS',
+      buyDesc: 'Законченная структурированная система, созданная для полного устранения ваших слабых мест.',
+      item1Title: 'Мгновенная ИИ-Диагностика Критериев',
+      item1Desc: 'Анализ Task Achievement, Coherence, Lexical Resource и Grammar для Writing и Speaking в реальном времени.',
+      item2Title: 'Тренировка Скорости Чтения и Аудирования',
+      item2Desc: 'Управление скоростью аудио, синхронный подсвет текста, таймер чтения и распознавание ловушек.',
+      item3Title: 'Симулятор Cue Card и Запись Речи',
+      item3Desc: 'Таймер на 1 минуту, прослушивание записей, анализ паузирования и тематические подборки слов.',
+      item4Title: 'Полные Пробные Тесты и Аналитика',
+      item4Desc: 'Полноформатные пробные экзамены на время по стандартам British Council и IDP.',
+      resultsTitle: 'Конкретные, Измеримые Результаты',
+      resultsDesc: 'Наша методология обеспечивает рост балла за недели, а не месяцы.',
+      metric1Val: '+1.5 Балла',
+      metric1Label: 'Средний Рост Балла',
+      metric1Desc: 'При занятиях по 30 минут в день в течение 6 недель.',
+      metric2Val: '94%',
+      metric2Label: 'Успех с Первой Попытки',
+      metric2Desc: 'Учеников достигают целевого балла с первого раза.',
+      metric3Val: 'В 2 раза Быстрее',
+      metric3Label: 'Эффективность Учебы',
+      metric3Desc: 'Экономия до 120 часов на хаотичной самостоятельной учебе.',
+      roiTitle: 'Почему Покупка Максимально Выгодна',
+      roiDesc: 'Сравните стоимость традиционных курсов и пересдач с доступным доступом к платформе.',
+      tutorCostTitle: 'Репетитор или Офлайн-Центр',
+      tutorCostVal: '$800 - $2,000',
+      tutorCostSub: 'за курс (2-3 месяца)',
+      retakeCostTitle: 'Стоимость Пересдачи Экзамена',
+      retakeCostVal: '$250+',
+      retakeCostSub: 'за каждую попытку + стресс',
+      ourPlatformTitle: 'just an ielts Полный Доступ',
+      ourPlatformVal: '$12',
+      ourPlatformSub: 'в месяц (отмена в любой момент)',
+      netSavingsTitle: 'Чистая Экономия',
+      netSavingsVal: 'Экономия от $1,000+',
+      netSavingsDesc: 'Сдайте с 1-й попытки без дорогих курсов и повторных оплатных сборов.',
+      ctaButton: 'Открыть Полный Доступ',
+      guaranteeText: 'Безопасная подготовка · Гарантия системного подхода',
     },
     loading: {
       loadingWorkspace: 'Загрузка рабочего пространства...',
