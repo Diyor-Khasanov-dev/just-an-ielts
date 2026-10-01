@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+/*
+ * Keep Tailwind's `dark:` utilities in sync with the theme selected in
+ * ThemeContext. Without this explicit variant Tailwind follows the operating
+ * system preference, which can leave a light page with dark-mode text (or the
+ * inverse) after the in-app toggle is used.
+ */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   color-scheme: light;
   --ink: #17213b;
@@ -10,6 +18,7 @@
   --surface-muted: #eef2f8;
   --blue: #4f46e5;
   --purple: #9574ed;
+  --accent-soft: #eef0ff;
   --shadow: 0 18px 55px rgba(33,49,95,.11);
 }
 
@@ -21,6 +30,7 @@
   --paper: #0b1220;
   --surface: #172033;
   --surface-muted: #202c43;
+  --accent-soft: #20275a;
   --shadow: 0 18px 55px rgba(0, 0, 0, 0.45);
 }
 
@@ -1700,3 +1710,70 @@ footer {
 .logout-link:hover { background: #fff1f3; color: #c45d76; }
 .dark .logout-link { color: #f87171; }
 .dark .logout-link:hover { background: #451a1a; color: #fca5a5; }
+
+/*
+ * Dashboard pages deliberately use Tailwind utility classes for their content
+ * cards. Most predate the theme switch and therefore have light-only utility
+ * colours. These token-aligned fallbacks make those pages readable in dark
+ * mode without altering meaningfully coloured controls (success, warning,
+ * and primary actions). Keeping this in one place prevents a page-by-page
+ * palette from drifting as new practice surfaces are added.
+ */
+.dark .bg-white,
+.dark .bg-white\/90,
+.dark .bg-white\/80 { background-color: var(--surface) !important; }
+.dark .bg-gray-50,
+.dark .bg-gray-100,
+.dark .bg-gray-100\/80,
+.dark .bg-indigo-50\/40 { background-color: var(--surface-muted) !important; }
+.dark .bg-gray-200 { background-color: #3a4964 !important; }
+.dark .border-white\/90,
+.dark .border-white\/80,
+.dark .border-gray-100,
+.dark .border-gray-200 { border-color: var(--line) !important; }
+.dark .divide-gray-100 > :not(:last-child) { border-color: var(--line) !important; }
+
+.dark .text-gray-900,
+.dark .text-gray-800,
+.dark .text-indigo-900 { color: var(--ink) !important; }
+.dark .text-gray-700,
+.dark .text-gray-600 { color: #c4cedd !important; }
+.dark .text-gray-500,
+.dark .text-gray-400 { color: var(--muted) !important; }
+
+/* Soft status panels need darker backgrounds as well as lighter text. */
+.dark .bg-amber-50,
+.dark .bg-amber-50\/70,
+.dark .bg-amber-50\/80 { background-color: #422b12 !important; }
+.dark .border-amber-100,
+.dark .border-amber-200,
+.dark .border-amber-200\/80 { border-color: #8a5b17 !important; }
+.dark .text-amber-950,
+.dark .text-amber-900 { color: #fde8bc !important; }
+.dark .text-amber-800 { color: #f7cf86 !important; }
+
+.dark .bg-emerald-50,
+.dark .bg-emerald-50\/80 { background-color: #123a31 !important; }
+.dark .border-emerald-100,
+.dark .border-emerald-200 { border-color: #23715e !important; }
+.dark .text-emerald-900 { color: #c7f7df !important; }
+.dark .text-emerald-800 { color: #91e8bd !important; }
+
+.dark .bg-indigo-50,
+.dark .bg-indigo-50\/80 { background-color: var(--accent-soft) !important; }
+.dark .border-indigo-100,
+.dark .border-indigo-200 { border-color: #4b58b2 !important; }
+.dark .text-indigo-950 { color: #e2e7ff !important; }
+.dark .text-indigo-800 { color: #bec9ff !important; }
+
+.dark .bg-purple-50,
+.dark .bg-purple-50\/80 { background-color: #32214e !important; }
+.dark .border-purple-100,
+.dark .border-purple-200 { border-color: #7554a6 !important; }
+.dark .text-purple-950 { color: #edddff !important; }
+
+.dark .hover\:bg-gray-50:hover,
+.dark .hover\:bg-gray-100:hover,
+.dark .hover\:bg-purple-50:hover,
+.dark .hover\:bg-indigo-50:hover { background-color: #2a3850 !important; }
+.dark .hover\:text-gray-900:hover { color: var(--ink) !important; }
