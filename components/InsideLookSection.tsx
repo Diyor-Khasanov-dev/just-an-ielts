@@ -10,7 +10,6 @@ import {
   GraduationCap,
   Headphones,
   Mic2,
-  Sparkles
 } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
 
@@ -138,13 +137,13 @@ export function InsideLookSection({ className = '' }: InsideLookSectionProps) {
         <div className='absolute -right-10 -bottom-10 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none' />
         <div className='space-y-2 max-w-xl relative z-10'>
           <div className='inline-flex items-center gap-2 px-3 py-1 bg-indigo-500/20 rounded-full text-indigo-300 text-xs font-bold uppercase tracking-wider mb-1 border border-indigo-400/30'>
-            <span>Interactive Experience</span>
+            <span>{ins.interactiveExp || 'Interactive Experience'}</span>
           </div>
           <h3 className='text-2xl sm:text-3xl font-extrabold text-white tracking-tight'>
-            Ready to test your current IELTS band?
+            {ins.readyToTest || 'Ready to test your current IELTS band?'}
           </h3>
           <p className='text-indigo-200/90 text-sm sm:text-base leading-relaxed'>
-            Experience live criteria evaluation, authentic exam timing, and personalized progress tracking right now.
+            {ins.experienceDesc || 'Experience live criteria evaluation, authentic exam timing, and personalized progress tracking right now.'}
           </p>
         </div>
 

@@ -1,14 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import {
-  ArrowRight,
-  CheckCircle2,
-  HelpCircle,
-  ShieldCheck,
-  Sparkles,
-  Zap
-} from 'lucide-react'
+import { Zap } from 'lucide-react'
+import { useLanguage } from '@/context/LanguageContext'
 
 const grammarModules = [
   {
@@ -32,6 +26,9 @@ const grammarModules = [
 ]
 
 export default function GrammarPage() {
+  const { t } = useLanguage()
+  const gm = t.grammarModule
+
   const [activeModule, setActiveModule] = useState(0)
   const [selectedFix, setSelectedFix] = useState<number | null>(null)
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null)
@@ -50,13 +47,13 @@ export default function GrammarPage() {
       {/* Header */}
       <div className="page-heading">
         <div>
-          <p className="eyebrow">IELTS GRAMMAR MODULE</p>
-          <h1>Grammar Masterclass & Error Fixer</h1>
-          <p>Eliminate frequent grammatical mistakes and expand sentence structures for higher Band scores.</p>
+          <p className="eyebrow">{gm.eyebrow}</p>
+          <h1>{gm.title}</h1>
+          <p>{gm.subtitle}</p>
         </div>
         <div className="flex items-center gap-2">
           <span className="px-3 py-1.5 bg-rose-50 text-rose-700 rounded-full text-xs font-bold border border-rose-200">
-            Grammar Score: Band 8.0 / 9.0
+            {gm.score}: Band 8.0 / 9.0
           </span>
         </div>
       </div>
@@ -87,18 +84,18 @@ export default function GrammarPage() {
         <div className="flex items-center justify-between border-b border-gray-200 pb-4">
           <div className="flex items-center gap-2">
             <Zap size={20} className="text-rose-600" />
-            <h3 className="text-lg font-extrabold text-gray-900">Grammar Error Corrector Drill</h3>
+            <h3 className="text-lg font-extrabold text-gray-900">{gm.drillTitle}</h3>
           </div>
-          <span className="text-xs font-semibold text-gray-400">Question 1 of 5</span>
+          <span className="text-xs font-semibold text-gray-400">{gm.questionCount}</span>
         </div>
 
         <div className="p-4 bg-rose-50 border border-rose-200 rounded-xl space-y-2">
-          <span className="text-xs font-bold text-rose-800 uppercase tracking-wider block">Candidate Sentence (Contains Error)</span>
+          <span className="text-xs font-bold text-rose-800 uppercase tracking-wider block">{gm.candidateSentence}</span>
           <p className="text-sm font-semibold text-rose-950 font-mono">&ldquo;{quizQuestion.errorSentence}&rdquo;</p>
         </div>
 
         <div className="space-y-3">
-          <label className="text-xs font-bold uppercase tracking-wider text-gray-500 block">Select Correct Grammatical Structure:</label>
+          <label className="text-xs font-bold uppercase tracking-wider text-gray-500 block">{gm.selectCorrect}</label>
           {quizQuestion.options.map((opt, idx) => {
             const isSelected = selectedFix === idx
             return (
@@ -119,7 +116,7 @@ export default function GrammarPage() {
                 <span>{opt.text}</span>
                 {isSelected && (
                   <span className={opt.correct ? 'text-emerald-600 font-bold' : 'text-rose-600 font-bold'}>
-                    {opt.correct ? 'Correct Structure ✓' : 'Contains Error ✕'}
+                    {opt.correct ? `${gm.correctStructure}` : `${gm.containsError}`}
                   </span>
                 )}
               </button>
@@ -131,7 +128,7 @@ export default function GrammarPage() {
           <div className={`p-4 rounded-xl border text-xs leading-relaxed font-medium ${
             isCorrect ? 'bg-emerald-50 border-emerald-200 text-emerald-900' : 'bg-rose-50 border-rose-200 text-rose-900'
           }`}>
-            <b>{isCorrect ? 'Excellent!' : 'Review Rule:'}</b> In first conditional structures (&ldquo;If + present simple, future simple&rdquo;), the condition clause uses present tense (&ldquo;do not invest&rdquo;) rather than future modal (&ldquo;will not&rdquo;).
+            <b>{isCorrect ? gm.excellent : gm.reviewRule}</b> In first conditional structures (&ldquo;If + present simple, future simple&rdquo;), the condition clause uses present tense (&ldquo;do not invest&rdquo;) rather than future modal (&ldquo;will not&rdquo;).
           </div>
         )}
       </section>

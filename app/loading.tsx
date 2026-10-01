@@ -1,60 +1,46 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import React from 'react'
+import { Sparkles } from 'lucide-react'
+import { useLanguage } from '@/context/LanguageContext'
 
-export default function RootLoading() {
+export default function Loading() {
+  const { t } = useLanguage()
+
   return (
-    <div className='landing min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-var(--paper) text-var(--ink)'>
-      <div className='landing-glow' />
+    <div className="min-h-screen w-full flex flex-col items-center justify-center bg-slate-950 text-white p-6 relative overflow-hidden">
+      {/* Background Orbs */}
+      <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl pointer-events-none animate-pulse" />
+      <div className="absolute bottom-1/4 right-1/3 w-96 h-96 bg-rose-600/20 rounded-full blur-3xl pointer-events-none animate-pulse" style={{ animationDelay: '1s' }} />
 
-      {/* Floating ambient orb background */}
-      <div
-        aria-hidden='true'
-        className='absolute inset-0 pointer-events-none flex items-center justify-center'
-      >
-        <div className='w-96 h-96 rounded-full bg-indigo-500/10 blur-3xl animate-pulse' />
-      </div>
-
-      {/* Main Glass Spinner Container */}
-      <div className='relative z-10 glass-card rounded-3xl p-8 sm:p-12 border border-white/80 shadow-2xl flex flex-col items-center text-center max-w-sm w-full mx-4 backdrop-blur-xl'>
-        {/* Animated Brand Logo & Rings */}
-        <div className='relative w-24 h-24 flex items-center justify-center mb-6'>
-          {/* Outer rotating gradient ring */}
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
-            className='absolute inset-0 rounded-2xl border-2 border-transparent border-t-indigo-600 border-r-purple-500'
-          />
-
-          {/* Inner pulsating glow */}
-          <motion.div
-            animate={{ scale: [0.9, 1.05, 0.9], opacity: [0.6, 1, 0.6] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            className='absolute inset-2 rounded-xl bg-indigo-50/80'
-          />
-
-          {/* Logo image */}
-          <img
-            src='/logo.png'
-            alt='just an ielts'
-            className='w-14 h-12 object-contain relative z-10'
-          />
+      <div className="relative z-10 flex flex-col items-center text-center space-y-6 max-w-sm">
+        {/* Animated Brand Logo Container */}
+        <div className="relative flex items-center justify-center">
+          <div className="w-20 h-20 rounded-3xl bg-indigo-600/30 border border-indigo-400/40 backdrop-blur-xl flex items-center justify-center shadow-2xl animate-bounce">
+            <img src="/logo.png" alt="just an ielts" className="w-12 h-10 object-contain" />
+          </div>
+          <div className="absolute -inset-2 bg-indigo-500/20 rounded-3xl blur-md -z-10 animate-ping" />
         </div>
 
-        {/* Text Skeleton / Message */}
-        <div className='space-y-2 w-full'>
-          <div className='h-5 bg-gray-200 rounded-full w-3/4 mx-auto animate-pulse' />
-          <div className='h-3.5 bg-gray-100 rounded-full w-1/2 mx-auto animate-pulse' />
+        {/* Loading Message */}
+        <div className="space-y-2">
+          <h2 className="text-xl font-black tracking-tight text-white flex items-center justify-center gap-2">
+            <Sparkles size={18} className="text-amber-400 animate-spin" />
+            <span>{t.loading.loadingWorkspace}</span>
+          </h2>
+          <p className="text-xs text-indigo-200/80 leading-relaxed">
+            {t.loading.preparingSession}
+          </p>
         </div>
 
-        {/* Pulse Bar Indicator */}
-        <div className='mt-8 w-full bg-gray-100 h-1.5 rounded-full overflow-hidden relative'>
-          <motion.div
-            animate={{ x: ['-100%', '100%'] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-            className='w-1/2 h-full bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full'
-          />
+        {/* Progress Spinner Bar */}
+        <div className="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden relative">
+          <div className="h-full bg-gradient-to-r from-indigo-500 via-rose-500 to-amber-400 rounded-full w-2/3 animate-pulse" />
         </div>
+
+        <span className="text-[11px] font-bold tracking-widest uppercase text-slate-500">
+          {t.loading.pleaseWait}
+        </span>
       </div>
     </div>
   )

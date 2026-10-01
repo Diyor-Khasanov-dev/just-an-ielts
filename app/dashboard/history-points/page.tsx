@@ -4,20 +4,16 @@ import { useState } from 'react'
 import {
   Award,
   BookOpen,
-  Calendar,
-  CheckCircle2,
   Clock,
-  Filter,
   Flame,
   Headphones,
   History,
   Mic2,
   PenLine,
   Sparkles,
-  Star,
-  Trophy,
-  Zap
+  Trophy
 } from 'lucide-react'
+import { useLanguage } from '@/context/LanguageContext'
 
 const historyLogs = [
   { id: 1, type: 'writing', title: 'Task 2 Opinion Essay · AI Jobs', result: 'Band 7.5', xp: '+120 XP', date: 'Today, 09:40 AM', duration: '35 mins' },
@@ -28,6 +24,9 @@ const historyLogs = [
 ]
 
 export default function HistoryPointsPage() {
+  const { t } = useLanguage()
+  const hm = t.historyModule
+
   const [filterType, setFilterType] = useState<string>('all')
 
   const filteredLogs = filterType === 'all'
@@ -39,13 +38,13 @@ export default function HistoryPointsPage() {
       {/* Header */}
       <div className="page-heading">
         <div>
-          <p className="eyebrow">ACTIVITY LOG & MILESTONES</p>
-          <h1>Practice History & Points</h1>
-          <p>Review your completed practice sessions, earned experience points, and unlocked badges.</p>
+          <p className="eyebrow">{hm.eyebrow}</p>
+          <h1>{hm.title}</h1>
+          <p>{hm.subtitle}</p>
         </div>
         <div className="flex items-center gap-2">
           <span className="px-3 py-1.5 bg-amber-50 text-amber-700 rounded-full text-xs font-bold border border-amber-200 flex items-center gap-1">
-            <Trophy size={14} className="text-amber-500" /> Total Points: 1,450 XP
+            <Trophy size={14} className="text-amber-500" /> {hm.totalPoints}: 1,450 XP
           </span>
         </div>
       </div>
@@ -57,9 +56,9 @@ export default function HistoryPointsPage() {
             <Trophy size={24} />
           </div>
           <div>
-            <span className="text-xs font-bold uppercase text-gray-400">Total Preparation Points</span>
+            <span className="text-xs font-bold uppercase text-gray-400">{hm.totalPoints}</span>
             <h3 className="text-2xl font-extrabold text-gray-900">1,450 XP</h3>
-            <span className="text-[11px] text-emerald-600 font-bold">Level 5 · Senior Scholar</span>
+            <span className="text-[11px] text-emerald-600 font-bold">{hm.levelSeniorScholar}</span>
           </div>
         </div>
 
@@ -68,9 +67,9 @@ export default function HistoryPointsPage() {
             <Flame size={24} />
           </div>
           <div>
-            <span className="text-xs font-bold uppercase text-gray-400">Active Study Streak</span>
-            <h3 className="text-2xl font-extrabold text-gray-900">8 Days</h3>
-            <span className="text-[11px] text-indigo-600 font-bold">+50 Bonus XP tomorrow</span>
+            <span className="text-xs font-bold uppercase text-gray-400">{hm.activeStreak}</span>
+            <h3 className="text-2xl font-extrabold text-gray-900">8 {hm.days}</h3>
+            <span className="text-[11px] text-indigo-600 font-bold">{hm.bonusXpTomorrow}</span>
           </div>
         </div>
 
@@ -79,9 +78,9 @@ export default function HistoryPointsPage() {
             <Award size={24} />
           </div>
           <div>
-            <span className="text-xs font-bold uppercase text-gray-400">Unlocked Milestones</span>
-            <h3 className="text-2xl font-extrabold text-gray-900">6 Badges</h3>
-            <span className="text-[11px] text-purple-600 font-bold">Next: Task 2 Specialist</span>
+            <span className="text-xs font-bold uppercase text-gray-400">{hm.unlockedMilestones}</span>
+            <h3 className="text-2xl font-extrabold text-gray-900">6 {hm.badges}</h3>
+            <span className="text-[11px] text-purple-600 font-bold">{hm.nextBadge}</span>
           </div>
         </div>
       </div>
@@ -89,8 +88,8 @@ export default function HistoryPointsPage() {
       {/* Unlocked Achievement Badges */}
       <section className="glass-card rounded-2xl p-6 border border-white/90 shadow-md space-y-4">
         <div className="flex items-center justify-between border-b border-gray-200 pb-3">
-          <h3 className="text-base font-extrabold text-gray-900">Unlocked Achievement Badges</h3>
-          <span className="text-xs text-indigo-600 font-bold">View All (6)</span>
+          <h3 className="text-base font-extrabold text-gray-900">{hm.unlockedBadgesTitle}</h3>
+          <span className="text-xs text-indigo-600 font-bold">{hm.viewAllBadges}</span>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
@@ -118,22 +117,32 @@ export default function HistoryPointsPage() {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-gray-200 pb-4">
           <div className="flex items-center gap-2">
             <History size={20} className="text-indigo-600" />
-            <h3 className="text-lg font-extrabold text-gray-900">Practice History Log</h3>
+            <h3 className="text-lg font-extrabold text-gray-900">{hm.historyLogTitle}</h3>
           </div>
 
           {/* Filter Pills */}
           <div className="flex flex-wrap items-center gap-1 bg-gray-100 p-1 rounded-xl text-xs font-bold">
-            {['all', 'writing', 'listening', 'reading', 'speaking', 'tests'].map((f) => (
-              <button
-                key={f}
-                onClick={() => setFilterType(f)}
-                className={`px-3 py-1 rounded-lg capitalize transition cursor-pointer ${
-                  filterType === f ? 'bg-white text-indigo-600 shadow-sm' : 'text-gray-500'
-                }`}
-              >
-                {f}
-              </button>
-            ))}
+            {['all', 'writing', 'listening', 'reading', 'speaking', 'tests'].map((f) => {
+              const labelMap: Record<string, string> = {
+                all: hm.all,
+                writing: hm.writing,
+                listening: hm.listening,
+                reading: hm.reading,
+                speaking: hm.speaking,
+                tests: hm.tests,
+              }
+              return (
+                <button
+                  key={f}
+                  onClick={() => setFilterType(f)}
+                  className={`px-3 py-1 rounded-lg capitalize transition cursor-pointer ${
+                    filterType === f ? 'bg-white text-indigo-600 shadow-sm' : 'text-gray-500'
+                  }`}
+                >
+                  {labelMap[f] || f}
+                </button>
+              )
+            })}
           </div>
         </div>
 

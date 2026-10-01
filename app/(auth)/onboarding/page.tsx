@@ -6,11 +6,12 @@ import { ArrowLeft, ArrowRight, Check, ChevronRight, Crown, Sparkles } from 'luc
 import { useLanguage } from '@/context/LanguageContext'
 import { LanguageSelector } from '@/components/LanguageSelector'
 
-const goals = ['University admission', 'Work or migration', 'Personal development', 'Not sure yet']
-const dates = ['In less than 1 month', '1–3 months', '3–6 months', 'I have not booked yet']
-
 export default function Onboarding() {
   const { t } = useLanguage()
+  const ob = t.onboarding
+
+  const goals = [ob.goals.uni, ob.goals.work, ob.goals.personal, ob.goals.notSure]
+  const dates = [ob.dates.less1m, ob.dates.m1to3, ob.dates.m3to6, ob.dates.notBooked]
 
   const [step, setStep] = useState(1)
   const [selected, setSelected] = useState(goals[0])
@@ -33,7 +34,7 @@ export default function Onboarding() {
           <LanguageSelector align='right' />
 
           <Link href='/login' className='hidden sm:block text-xs font-semibold'>
-            Already have an account? <b className='text-indigo-600 hover:underline'>{t.nav.signIn}</b>
+            {ob.alreadyHaveAccount} <b className='text-indigo-600 hover:underline'>{t.nav.signIn}</b>
           </Link>
         </div>
       </header>
@@ -51,13 +52,13 @@ export default function Onboarding() {
           {isSetup ? (
             <>
               <p className='eyebrow'>
-                {t.onboarding.personalisePath} · {t.onboarding.stepOf3} {step} OF 3
+                {ob.personalisePath} · {ob.stepOf3} {step} OF 3
               </p>
-              <h1>{step === 1 ? t.onboarding.whatBringsYou : t.onboarding.whenTakingTest}</h1>
+              <h1>{step === 1 ? ob.whatBringsYou : ob.whenTakingTest}</h1>
               <p>
                 {step === 1
-                  ? 'Your goal helps us build a study plan that makes sense for you.'
-                  : 'We will tailor your weekly pace to your timeline.'}
+                  ? ob.step1Subtitle
+                  : ob.step2Subtitle}
               </p>
               <div className='option-list'>
                 {choices.map((option) => (
@@ -84,22 +85,22 @@ export default function Onboarding() {
                     }}
                     className='back-button'
                   >
-                    <ArrowLeft size={16} /> {t.onboarding.back}
+                    <ArrowLeft size={16} /> {ob.back}
                   </button>
                 )}
                 <button type='button' onClick={moveForward} className='next-button'>
-                  {t.onboarding.continue} <ArrowRight size={17} />
+                  {ob.continue} <ArrowRight size={17} />
                 </button>
               </div>
             </>
           ) : (
             <>
               <p className='eyebrow'>
-                {t.onboarding.planReady} · {t.onboarding.stepOf3} 3 OF 3
+                {ob.planReady} · {ob.stepOf3} 3 OF 3
               </p>
-              <h1>{t.onboarding.chooseStartingPoint}</h1>
+              <h1>{ob.chooseStartingPoint}</h1>
               <p>
-                Start free with a clear weekly plan, or unlock detailed feedback whenever you&apos;re ready.
+                {ob.step3Subtitle}
               </p>
               <div className='plan-options'>
                 <button
@@ -111,8 +112,8 @@ export default function Onboarding() {
                     {plan === 'free' && <Check size={15} />}
                   </span>
                   <div>
-                    <b>{t.onboarding.freePlan}</b>
-                    <small>{t.onboarding.freePlanDesc}</small>
+                    <b>{ob.freePlan}</b>
+                    <small>{ob.freePlanDesc}</small>
                   </div>
                   <strong>
                     $0 <small>forever</small>
@@ -128,14 +129,14 @@ export default function Onboarding() {
                   </span>
                   <div>
                     <b>
-                      <Crown size={15} /> {t.onboarding.premiumPlan}
+                      <Crown size={15} /> {ob.premiumPlan}
                     </b>
-                    <small>{t.onboarding.premiumPlanDesc}</small>
+                    <small>{ob.premiumPlanDesc}</small>
                   </div>
                   <strong>
                     $12 <small>/ month</small>
                   </strong>
-                  <em>{t.onboarding.mostPopular}</em>
+                  <em>{ob.mostPopular}</em>
                 </button>
               </div>
 
@@ -148,15 +149,15 @@ export default function Onboarding() {
                   }}
                   className='back-button'
                 >
-                  <ArrowLeft size={16} /> {t.onboarding.back}
+                  <ArrowLeft size={16} /> {ob.back}
                 </button>
                 <Link href='/dashboard' className='next-button'>
-                  {plan === 'premium' ? t.onboarding.startPremium : t.onboarding.continueForFree}{' '}
+                  {plan === 'premium' ? ob.startPremium : ob.continueForFree}{' '}
                   <ChevronRight size={17} />
                 </Link>
               </div>
               <p className='plan-note'>
-                <Sparkles size={14} /> You can change or upgrade your plan at any time.
+                <Sparkles size={14} /> {ob.planNote}
               </p>
             </>
           )}

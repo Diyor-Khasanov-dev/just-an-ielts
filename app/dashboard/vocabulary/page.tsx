@@ -4,16 +4,12 @@ import { useState } from 'react'
 import {
   ArrowLeft,
   ArrowRight,
-  BookOpen,
   CheckCircle2,
-  CheckSquare,
   GraduationCap,
-  Layers,
   RotateCw,
-  Sparkles,
-  Star,
-  Volume2
+  Sparkles
 } from 'lucide-react'
+import { useLanguage } from '@/context/LanguageContext'
 
 const vocabDecks = [
   {
@@ -49,47 +45,50 @@ const vocabDecks = [
     ]
   },
   {
-    topic: 'Technology & Artificial Intelligence',
+    topic: 'Technology & Automation',
     words: [
       {
         word: 'Pervasive',
         pos: 'adjective',
-        band: 'Band 8.0+',
+        band: 'Band 7.5+',
         def: 'Spreading widely throughout an area or a group of people.',
-        example: 'Digital technology has become a pervasive element in modern educational systems.',
-        collocations: ['pervasive influence', 'pervasive impact'],
+        example: 'The pervasive nature of smartphones has fundamentally altered interpersonal communication.',
+        collocations: ['pervasive influence', 'pervasive technology'],
         synonyms: ['ubiquitous', 'omnipresent', 'widespread']
       },
       {
         word: 'Automate',
         pos: 'verb',
-        band: 'Band 7.0+',
-        def: 'To convert a process or facility to be operated by automatic equipment.',
-        example: 'Manufacturing companies automate routine tasks to increase operational productivity.',
-        collocations: ['automate processes', 'fully automated'],
-        synonyms: ['mechanize', 'computerize']
+        band: 'Band 6.5+',
+        def: 'To convert a process or facility to be operated by automated machinery.',
+        example: 'Manufacturing companies automate routine production lines to maximize efficiency.',
+        collocations: ['fully automate', 'automate tasks'],
+        synonyms: ['computerize', 'mechanize']
       }
     ]
   }
 ]
 
 export default function VocabularyPage() {
-  const [selectedTopicIdx, setSelectedTopicIdx] = useState(0)
-  const [cardIdx, setCardIdx] = useState(0)
-  const [isFlipped, setIsFlipped] = useState(false)
-  const [reviewedCount, setReviewedCount] = useState(12)
+  const { t } = useLanguage()
+  const vm = t.vocabularyModule
 
-  const currentDeck = vocabDecks[selectedTopicIdx]
-  const currentCard = currentDeck.words[cardIdx] || currentDeck.words[0]
+  const [activeDeckIdx, setActiveDeckIdx] = useState(0)
+  const [activeWordIdx, setActiveWordIdx] = useState(0)
+  const [flipped, setFlipped] = useState(false)
+  const [masteredWords, setMasteredWords] = useState<string[]>([])
 
-  const nextCard = () => {
-    setIsFlipped(false)
-    setCardIdx((prev) => (prev + 1) % currentDeck.words.length)
-  }
+  const currentDeck = vocabDecks[activeDeckIdx]
+  const currentWord = currentDeck.words[activeWordIdx] || currentDeck.words[0]
 
-  const prevCard = () => {
-    setIsFlipped(false)
-    setCardIdx((prev) => (prev - 1 + currentDeck.words.length) % currentDeck.words.length)
+  const isMastered = masteredWords.includes(currentWord.word)
+
+  const toggleMastered = (word: string) => {
+    if (masteredWords.includes(word)) {
+      setMasteredWords(masteredWords.filter((w) => w !== word))
+    } else {
+      setMasteredWords([...masteredWords, word])
+    }
   }
 
   return (
@@ -97,126 +96,139 @@ export default function VocabularyPage() {
       {/* Header */}
       <div className="page-heading">
         <div>
-          <p className="eyebrow">IELTS VOCABULARY DECK</p>
-          <h1>Academic Vocabulary & Collocations</h1>
-          <p>Master Band 7+ and 8+ words with interactive flashcards and spaced repetition.</p>
+          <p className="eyebrow">{vm.eyebrow}</p>
+          <h1>{vm.title}</h1>
+          <p>{vm.subtitle}</p>
         </div>
         <div className="flex items-center gap-2">
           <span className="px-3 py-1.5 bg-purple-50 text-purple-700 rounded-full text-xs font-bold border border-purple-200">
-            Words Mastered: 148 / 300
+            {vm.mastered}: {masteredWords.length} {vm.words}
           </span>
         </div>
       </div>
 
-      {/* Topic Selector Pills */}
-      <div className="flex flex-wrap gap-2">
+      {/* Deck Selector Tabs */}
+      <div className="flex flex-wrap items-center gap-3 bg-white p-2 rounded-2xl border border-gray-200 shadow-sm max-w-xl">
         {vocabDecks.map((deck, idx) => (
           <button
             key={idx}
             onClick={() => {
-              setSelectedTopicIdx(idx)
-              setCardIdx(0)
-              setIsFlipped(false)
+              setActiveDeckIdx(idx)
+              setActiveWordIdx(0)
+              setFlipped(false)
             }}
-            className={`px-4 py-2 rounded-xl text-xs font-bold transition cursor-pointer ${
-              selectedTopicIdx === idx
-                ? 'bg-purple-600 text-white shadow-md'
-                : 'bg-white text-gray-700 border border-gray-200 hover:bg-gray-50'
+            className={`flex-1 py-2.5 px-4 rounded-xl text-xs font-bold transition cursor-pointer text-center ${
+              activeDeckIdx === idx
+                ? 'bg-purple-600 text-white shadow-sm'
+                : 'text-gray-600 hover:bg-gray-50'
             }`}
           >
-            {deck.topic} ({deck.words.length} words)
+            {deck.topic}
           </button>
         ))}
       </div>
 
-      {/* Interactive Flashcard Component */}
-      <section className="max-w-2xl mx-auto space-y-6">
-        <div className="flex items-center justify-between text-xs font-bold text-gray-500">
-          <span>
-            Word <b className="text-purple-600">{cardIdx + 1}</b> of {currentDeck.words.length}
-          </span>
-          <span className="text-purple-600 bg-purple-50 px-2.5 py-1 rounded-full border border-purple-100">
-            {currentCard.band}
-          </span>
+      {/* Interactive Flashcard Card */}
+      <section className="glass-card rounded-3xl p-8 md:p-12 border border-white/90 shadow-xl max-w-2xl mx-auto text-center space-y-6 relative overflow-hidden">
+        <div className="flex items-center justify-between text-xs font-bold text-gray-400 border-b border-gray-200 pb-4">
+          <span className="uppercase tracking-wider text-purple-600">{currentDeck.topic}</span>
+          <span>{activeWordIdx + 1} / {currentDeck.words.length}</span>
         </div>
 
-        {/* Card Flip Wrapper */}
+        {/* Card Flip Container */}
         <div
-          onClick={() => setIsFlipped(!isFlipped)}
-          className="min-h-[280px] bg-white rounded-3xl p-8 border border-gray-200 shadow-xl cursor-pointer hover:border-purple-300 transition-all duration-300 flex flex-col justify-between relative overflow-hidden"
+          onClick={() => setFlipped(!flipped)}
+          className={`p-8 md:p-10 rounded-2xl border transition-all duration-300 cursor-pointer min-h-[260px] flex flex-col justify-center items-center gap-3 ${
+            flipped
+              ? 'bg-purple-900 text-white border-purple-800 shadow-2xl scale-[1.01]'
+              : 'bg-white text-gray-900 border-gray-200 shadow-md hover:border-purple-300'
+          }`}
         >
-          <span className="absolute top-4 right-4 text-[10px] font-bold text-gray-400 flex items-center gap-1">
-            <RotateCw size={12} /> Click card to flip
-          </span>
-
-          {!isFlipped ? (
-            /* Card Front */
-            <div className="my-auto text-center space-y-3">
-              <span className="text-xs font-bold uppercase tracking-widest text-purple-500">{currentCard.pos}</span>
-              <h2 className="text-4xl font-extrabold text-gray-900 tracking-tight">{currentCard.word}</h2>
-              <p className="text-xs text-gray-400">Click to reveal definition & Band 8 example sentence</p>
-            </div>
+          {!flipped ? (
+            <>
+              <span className="px-3 py-1 bg-purple-50 text-purple-700 rounded-full text-xs font-extrabold border border-purple-200">
+                {currentWord.band} · {currentWord.pos}
+              </span>
+              <h2 className="text-4xl md:text-5xl font-black tracking-tight">{currentWord.word}</h2>
+              <span className="text-xs text-gray-400 font-semibold flex items-center gap-1 mt-2">
+                <RotateCw size={12} /> {vm.clickToFlip}
+              </span>
+            </>
           ) : (
-            /* Card Back */
-            <div className="space-y-4 my-auto">
+            <div className="space-y-4 text-left w-full">
               <div>
-                <span className="text-[10px] font-bold text-purple-600 uppercase tracking-wider block">Definition</span>
-                <p className="text-base font-bold text-gray-900 leading-snug">{currentCard.def}</p>
+                <span className="text-[10px] font-extrabold uppercase text-purple-300 block">{vm.definition}</span>
+                <p className="text-base font-bold text-white mt-0.5">{currentWord.def}</p>
               </div>
 
-              <div className="p-3 bg-purple-50/80 rounded-xl border border-purple-100">
-                <span className="text-[10px] font-bold text-purple-700 uppercase tracking-wider block">Exam Example</span>
-                <p className="text-xs text-purple-950 font-medium italic mt-0.5">&ldquo;{currentCard.example}&rdquo;</p>
+              <div>
+                <span className="text-[10px] font-extrabold uppercase text-purple-300 block">{vm.exampleSentence}</span>
+                <p className="text-xs text-purple-100 italic leading-relaxed mt-0.5">
+                  &ldquo;{currentWord.example}&rdquo;
+                </p>
               </div>
 
-              <div className="grid grid-cols-2 gap-3 pt-1">
+              <div className="grid grid-cols-2 gap-3 pt-2 border-t border-purple-800/80">
                 <div>
-                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider block">Collocations</span>
-                  <p className="text-xs font-semibold text-gray-700">{currentCard.collocations.join(', ')}</p>
+                  <span className="text-[10px] font-extrabold uppercase text-purple-300 block">{vm.collocations}</span>
+                  <div className="flex flex-wrap gap-1 mt-1">
+                    {currentWord.collocations.map((c, i) => (
+                      <span key={i} className="text-[10px] bg-purple-800 text-purple-200 px-2 py-0.5 rounded font-medium">
+                        {c}
+                      </span>
+                    ))}
+                  </div>
                 </div>
+
                 <div>
-                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider block">Synonyms</span>
-                  <p className="text-xs font-semibold text-gray-700">{currentCard.synonyms.join(', ')}</p>
+                  <span className="text-[10px] font-extrabold uppercase text-purple-300 block">{vm.synonyms}</span>
+                  <div className="flex flex-wrap gap-1 mt-1">
+                    {currentWord.synonyms.map((s, i) => (
+                      <span key={i} className="text-[10px] bg-purple-800 text-purple-200 px-2 py-0.5 rounded font-medium">
+                        {s}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           )}
-
-          <div className="pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-400">
-            <span>Topic: {currentDeck.topic}</span>
-            <span>Spaced Repetition Active</span>
-          </div>
         </div>
 
-        {/* Flashcard Navigation & Rating Bar */}
-        <div className="flex items-center justify-between">
+        {/* Card Controls Nav */}
+        <div className="flex items-center justify-between pt-2">
           <button
-            onClick={prevCard}
-            className="p-3 bg-white border border-gray-200 hover:bg-gray-50 rounded-2xl text-gray-700 font-bold text-xs flex items-center gap-1 cursor-pointer transition shadow-sm"
+            onClick={() => {
+              setActiveWordIdx((prev) => Math.max(0, prev - 1))
+              setFlipped(false)
+            }}
+            disabled={activeWordIdx === 0}
+            className="px-4 py-2 bg-gray-100 hover:bg-gray-200 disabled:opacity-40 text-gray-800 text-xs font-bold rounded-xl transition cursor-pointer flex items-center gap-1"
           >
-            <ArrowLeft size={16} /> Previous
+            <ArrowLeft size={14} /> {vm.prevWord}
           </button>
 
-          <div className="flex items-center gap-2">
-            {['Hard', 'Medium', 'Easy'].map((rating) => (
-              <button
-                key={rating}
-                onClick={() => {
-                  setReviewedCount((prev) => prev + 1)
-                  nextCard()
-                }}
-                className="px-3.5 py-2 bg-gray-100 hover:bg-purple-50 hover:text-purple-700 text-gray-700 rounded-xl text-xs font-bold transition cursor-pointer"
-              >
-                {rating}
-              </button>
-            ))}
-          </div>
+          <button
+            onClick={() => toggleMastered(currentWord.word)}
+            className={`px-5 py-2.5 text-xs font-extrabold rounded-xl transition cursor-pointer flex items-center gap-1.5 ${
+              isMastered
+                ? 'bg-emerald-600 text-white shadow-md'
+                : 'bg-purple-100 text-purple-800 hover:bg-purple-200'
+            }`}
+          >
+            <CheckCircle2 size={16} />
+            {isMastered ? vm.masteredBadge : vm.markAsMastered}
+          </button>
 
           <button
-            onClick={nextCard}
-            className="p-3 bg-purple-600 hover:bg-purple-700 text-white rounded-2xl font-bold text-xs flex items-center gap-1 cursor-pointer transition shadow-md"
+            onClick={() => {
+              setActiveWordIdx((prev) => Math.min(currentDeck.words.length - 1, prev + 1))
+              setFlipped(false)
+            }}
+            disabled={activeWordIdx === currentDeck.words.length - 1}
+            className="px-4 py-2 bg-gray-100 hover:bg-gray-200 disabled:opacity-40 text-gray-800 text-xs font-bold rounded-xl transition cursor-pointer flex items-center gap-1"
           >
-            Next Word <ArrowRight size={16} />
+            {vm.nextWord} <ArrowRight size={14} />
           </button>
         </div>
       </section>
