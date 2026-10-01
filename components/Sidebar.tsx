@@ -63,7 +63,7 @@ export function Sidebar({ isOpen, isCollapsed, onClose, onToggleCollapse }: Side
           {onClose && (
             <button
               onClick={onClose}
-              className='p-1 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-slate-800 sm:hidden'
+              className='p-1 rounded-lg text-gray-500 hover:bg-gray-100 sm:hidden'
               aria-label='Close sidebar'
             >
               <X size={20} />
@@ -72,7 +72,7 @@ export function Sidebar({ isOpen, isCollapsed, onClose, onToggleCollapse }: Side
           {onToggleCollapse && (
             <button
               onClick={onToggleCollapse}
-              className='p-1.5 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-slate-800 hidden sm:flex items-center justify-center transition-colors shrink-0'
+              className='p-1.5 rounded-lg text-gray-500 hover:bg-gray-100 hidden sm:flex items-center justify-center transition-colors shrink-0'
               aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
               title={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
             >

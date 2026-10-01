@@ -5,7 +5,6 @@ import Link from 'next/link'
 import { ArrowLeft, ArrowRight, Check, ChevronRight, Crown, Sparkles } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
 import { LanguageSelector } from '@/components/LanguageSelector'
-import { ThemeToggle } from '@/components/ThemeToggle'
 
 const goals = ['University admission', 'Work or migration', 'Personal development', 'Not sure yet']
 const dates = ['In less than 1 month', '1–3 months', '3–6 months', 'I have not booked yet']
@@ -32,7 +31,6 @@ export default function Onboarding() {
         </Link>
         <div className='flex items-center gap-2 sm:gap-4'>
           <LanguageSelector align='right' />
-          <ThemeToggle />
 
           <Link href='/login' className='hidden sm:block text-xs font-semibold'>
             Already have an account? <b className='text-indigo-600 hover:underline'>{t.nav.signIn}</b>

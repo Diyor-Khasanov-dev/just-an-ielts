@@ -5,19 +5,15 @@ import {
   Bell,
   CheckCircle2,
   Globe,
-  Moon,
   Palette,
   Save,
   Shield,
-  Sun,
   Target
 } from 'lucide-react'
-import { useTheme } from '@/context/ThemeContext'
 import { useLanguage } from '@/context/LanguageContext'
 import { Language } from '@/lib/i18n/translations'
 
 export default function SettingsPage() {
-  const { theme, setTheme } = useTheme()
   const { lang, setLang, t } = useLanguage()
 
   const [activeTab, setActiveTab] = useState<'profile' | 'reminders' | 'appearance' | 'account'>('profile')
@@ -51,7 +47,7 @@ export default function SettingsPage() {
       </div>
 
       {/* Settings Navigation Tabs */}
-      <div className="flex flex-wrap items-center gap-2 border-b border-gray-200 dark:border-slate-800 pb-3">
+      <div className="flex flex-wrap items-center gap-2 border-b border-gray-200 pb-3">
         {[
           { id: 'profile', label: t.settings.tabProfile, icon: Target },
           { id: 'reminders', label: t.settings.tabReminders, icon: Bell },
@@ -67,7 +63,7 @@ export default function SettingsPage() {
               className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-xs transition cursor-pointer ${
                 isActive
                   ? 'bg-indigo-600 text-white shadow-md'
-                  : 'bg-white dark:bg-slate-800 text-gray-600 dark:text-slate-300 border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700'
+                  : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50'
               }`}
             >
               <Icon size={16} />
@@ -88,45 +84,45 @@ export default function SettingsPage() {
       )}
 
       {/* Tab Form Containers */}
-      <section className="glass-card rounded-2xl p-6 md:p-8 border border-white/90 dark:border-slate-800 shadow-md">
+      <section className="glass-card rounded-2xl p-6 md:p-8 border border-white/90 shadow-md">
         <form onSubmit={handleSave} className="space-y-6">
           {activeTab === 'profile' && (
             <div className="space-y-5 max-w-xl">
-              <h3 className="text-lg font-extrabold text-gray-900 dark:text-white border-b border-gray-200 dark:border-slate-800 pb-3">
+              <h3 className="text-lg font-extrabold text-gray-900 border-b border-gray-200 pb-3">
                 {t.settings.profileHeader}
               </h3>
 
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-slate-400 block">
+                <label className="text-xs font-bold uppercase tracking-wider text-gray-600 block">
                   {t.settings.fullName}
                 </label>
                 <input
                   type="text"
                   defaultValue="Alex Nguyen"
-                  className="w-full p-3 rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-semibold text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full p-3 rounded-xl border border-gray-200 bg-white text-xs font-semibold text-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-slate-400 block">
+                <label className="text-xs font-bold uppercase tracking-wider text-gray-600 block">
                   {t.settings.emailAddress}
                 </label>
                 <input
                   type="email"
                   defaultValue="alex.nguyen@example.com"
                   disabled
-                  className="w-full p-3 rounded-xl border border-gray-200 dark:border-slate-800 bg-gray-100 dark:bg-slate-900 text-xs font-semibold text-gray-500 dark:text-slate-500"
+                  className="w-full p-3 rounded-xl border border-gray-200 bg-gray-100 text-xs font-semibold text-gray-500"
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-slate-400 block">
+                <label className="text-xs font-bold uppercase tracking-wider text-gray-600 block">
                   {t.settings.targetBandScore}
                 </label>
                 <select
                   value={targetBand}
                   onChange={(e) => setTargetBand(e.target.value)}
-                  className="w-full p-3 rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-semibold text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full p-3 rounded-xl border border-gray-200 bg-white text-xs font-semibold text-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 >
                   <option value="6.5">Band 6.5</option>
                   <option value="7.0">Band 7.0</option>
@@ -137,14 +133,14 @@ export default function SettingsPage() {
               </div>
 
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-slate-400 block">
+                <label className="text-xs font-bold uppercase tracking-wider text-gray-600 block">
                   {t.settings.upcomingExamDate}
                 </label>
                 <input
                   type="date"
                   value={examDate}
                   onChange={(e) => setExamDate(e.target.value)}
-                  className="w-full p-3 rounded-xl border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-semibold text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full p-3 rounded-xl border border-gray-200 bg-white text-xs font-semibold text-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 />
               </div>
             </div>
@@ -152,12 +148,12 @@ export default function SettingsPage() {
 
           {activeTab === 'reminders' && (
             <div className="space-y-5 max-w-xl">
-              <h3 className="text-lg font-extrabold text-gray-900 dark:text-white border-b border-gray-200 dark:border-slate-800 pb-3">
+              <h3 className="text-lg font-extrabold text-gray-900 border-b border-gray-200 pb-3">
                 {t.settings.studyPaceHeader}
               </h3>
 
               <div className="space-y-3">
-                <label className="text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-slate-400 block">
+                <label className="text-xs font-bold uppercase tracking-wider text-gray-600 block">
                   {t.settings.dailyGoal}
                 </label>
                 <div className="flex items-center gap-2">
@@ -169,7 +165,7 @@ export default function SettingsPage() {
                       className={`flex-1 py-2.5 px-3 rounded-xl border text-xs font-bold transition cursor-pointer text-center ${
                         dailyMinutes === mins
                           ? 'border-indigo-600 bg-indigo-600 text-white shadow-sm'
-                          : 'border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-gray-700 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700'
+                          : 'border-gray-200 bg-white text-gray-700 hover:bg-gray-50'
                       }`}
                     >
                       {mins} {t.settings.minsDay}
@@ -178,12 +174,12 @@ export default function SettingsPage() {
                 </div>
               </div>
 
-              <div className="p-4 bg-white dark:bg-slate-800/80 rounded-xl border border-gray-200 dark:border-slate-700 flex items-center justify-between">
+              <div className="p-4 bg-white rounded-xl border border-gray-200 flex items-center justify-between">
                 <div>
-                  <b className="text-xs font-bold text-gray-900 dark:text-white block">
+                  <b className="text-xs font-bold text-gray-900 block">
                     {t.settings.dailyNotifications}
                   </b>
-                  <span className="text-[11px] text-gray-500 dark:text-slate-400">
+                  <span className="text-[11px] text-gray-500">
                     {t.settings.dailyNotificationsDesc}
                   </span>
                 </div>
@@ -191,7 +187,7 @@ export default function SettingsPage() {
                   type="button"
                   onClick={() => setNotificationsEnabled(!notificationsEnabled)}
                   className={`w-11 h-6 rounded-full transition-colors cursor-pointer p-0.5 ${
-                    notificationsEnabled ? 'bg-indigo-600' : 'bg-gray-300 dark:bg-slate-700'
+                    notificationsEnabled ? 'bg-indigo-600' : 'bg-gray-300'
                   }`}
                 >
                   <div
@@ -206,65 +202,13 @@ export default function SettingsPage() {
 
           {activeTab === 'appearance' && (
             <div className="space-y-6 max-w-xl">
-              <h3 className="text-lg font-extrabold text-gray-900 dark:text-white border-b border-gray-200 dark:border-slate-800 pb-3">
+              <h3 className="text-lg font-extrabold text-gray-900 border-b border-gray-200 pb-3">
                 {t.settings.appearanceHeader}
               </h3>
 
-              {/* Theme Mode Option */}
-              <div className="space-y-3">
-                <label className="text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-slate-400 block">
-                  {t.settings.themeMode}
-                </label>
-                <div className="grid grid-cols-2 gap-4">
-                  <button
-                    type="button"
-                    onClick={() => setTheme('light')}
-                    className={`p-4 rounded-2xl border text-left flex items-center gap-3 transition cursor-pointer ${
-                      theme === 'light'
-                        ? 'border-indigo-600 bg-indigo-50/50 dark:bg-indigo-950/30 ring-2 ring-indigo-500'
-                        : 'border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700'
-                    }`}
-                  >
-                    <div className="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0">
-                      <Sun size={20} />
-                    </div>
-                    <div>
-                      <b className="text-xs font-bold text-gray-900 dark:text-white block">
-                        {t.settings.lightTheme}
-                      </b>
-                      <span className="text-[10px] text-gray-500 dark:text-slate-300 block mt-0.5">
-                        Clean paper & glass aesthetics
-                      </span>
-                    </div>
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => setTheme('dark')}
-                    className={`p-4 rounded-2xl border text-left flex items-center gap-3 transition cursor-pointer ${
-                      theme === 'dark'
-                        ? 'border-indigo-600 bg-indigo-950/60 ring-2 ring-indigo-500'
-                        : 'border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700'
-                    }`}
-                  >
-                    <div className="w-10 h-10 rounded-xl bg-indigo-900 text-indigo-300 flex items-center justify-center shrink-0">
-                      <Moon size={20} />
-                    </div>
-                    <div>
-                      <b className="text-xs font-bold text-gray-900 dark:text-white block">
-                        {t.settings.darkTheme}
-                      </b>
-                      <span className="text-[10px] text-gray-500 dark:text-slate-300 block mt-0.5">
-                        Sleek dark mode for night study
-                      </span>
-                    </div>
-                  </button>
-                </div>
-              </div>
-
               {/* Language Preference Option */}
-              <div className="space-y-3 pt-4 border-t border-gray-200 dark:border-slate-800">
-                <label className="text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-slate-400 block">
+              <div className="space-y-3">
+                <label className="text-xs font-bold uppercase tracking-wider text-gray-600 block">
                   {t.settings.languagePreference}
                 </label>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -275,17 +219,17 @@ export default function SettingsPage() {
                       onClick={() => setLang(code)}
                       className={`p-4 rounded-2xl border text-left flex items-center justify-between transition cursor-pointer ${
                         lang === code
-                          ? 'border-indigo-600 bg-indigo-50/50 dark:bg-indigo-950/40 ring-2 ring-indigo-500'
-                          : 'border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700'
+                          ? 'border-indigo-600 bg-indigo-50/50 ring-2 ring-indigo-500'
+                          : 'border-gray-200 bg-white hover:bg-gray-50'
                       }`}
                     >
                       <div className="flex items-center gap-2.5">
-                        <Globe size={18} className={lang === code ? 'text-indigo-600 dark:text-indigo-400' : 'text-gray-400'} />
-                        <span className="text-xs font-bold text-gray-900 dark:text-white">
+                        <Globe size={18} className={lang === code ? 'text-indigo-600' : 'text-gray-400'} />
+                        <span className="text-xs font-bold text-gray-900">
                           {nativeName}
                         </span>
                       </div>
-                      <span className="px-2 py-0.5 text-[10px] font-extrabold rounded bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-slate-300">
+                      <span className="px-2 py-0.5 text-[10px] font-extrabold rounded bg-gray-100 text-gray-600">
                         {badge}
                       </span>
                     </button>
@@ -297,15 +241,15 @@ export default function SettingsPage() {
 
           {activeTab === 'account' && (
             <div className="space-y-5 max-w-xl">
-              <h3 className="text-lg font-extrabold text-gray-900 dark:text-white border-b border-gray-200 dark:border-slate-800 pb-3">
+              <h3 className="text-lg font-extrabold text-gray-900 border-b border-gray-200 pb-3">
                 Account & Security
               </h3>
 
-              <div className="p-4 bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-900 rounded-xl space-y-1">
-                <b className="text-xs font-bold text-indigo-900 dark:text-indigo-200 block">
+              <div className="p-4 bg-indigo-50 border border-indigo-200 rounded-xl space-y-1">
+                <b className="text-xs font-bold text-indigo-900 block">
                   Google Sign-in Active
                 </b>
-                <p className="text-[11px] text-indigo-800 dark:text-indigo-300">
+                <p className="text-[11px] text-indigo-800">
                   Your account is connected via Google OAuth 2.0 session.
                 </p>
               </div>
@@ -313,7 +257,7 @@ export default function SettingsPage() {
               <div className="pt-2">
                 <button
                   type="button"
-                  className="px-4 py-2 bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 dark:hover:bg-slate-700 text-gray-700 dark:text-slate-200 font-bold text-xs rounded-xl transition"
+                  className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold text-xs rounded-xl transition"
                 >
                   Export My Practice History (JSON)
                 </button>
@@ -321,7 +265,7 @@ export default function SettingsPage() {
             </div>
           )}
 
-          <div className="pt-4 border-t border-gray-200 dark:border-slate-800 flex justify-end">
+          <div className="pt-4 border-t border-gray-200 flex justify-end">
             <button
               type="submit"
               className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs rounded-xl shadow-md transition cursor-pointer flex items-center gap-2"
