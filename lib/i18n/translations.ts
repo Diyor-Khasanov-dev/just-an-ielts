@@ -838,7 +838,7 @@ export const translations: Record<Language, Translations> = {
     },
     insideLook: {
       eyebrow: 'INSIDE THE PLATFORM',
-      title: 'Take a look inside JUST AN IELTS',
+      title: 'Take a look inside',
       subtitle:
         'Explore the actual tools, interactive modules, and diagnostic feedback systems built to get you to your target band score.',
       tryItYourself: 'Try It Yourself',
@@ -1700,7 +1700,7 @@ export const translations: Record<Language, Translations> = {
     },
     insideLook: {
       eyebrow: 'ВНУТРИ ПЛАТФОРМЫ',
-      title: 'Заглянуть Внутрь JUST AN IELTS',
+      title: 'Заглянуть Внутрь',
       subtitle:
         'Ознакомьтесь с реальными инструментами, интерактивными модулями и диагностикой ИИ для достижения вашего целевого балла.',
       tryItYourself: 'Попробуйте Сами',
