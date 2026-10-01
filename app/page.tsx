@@ -173,7 +173,7 @@ export default function Home() {
       <section className='hero'>
         <div className='hero-copy'>
           <div className='intro-badge'>
-            <Sparkles size={15} /> {t.hero.badge}
+           {t.hero.badge}
           </div>
           <h1>
             {t.hero.title1} <em>{t.hero.titleEm}</em>
@@ -215,7 +215,6 @@ export default function Home() {
               <small>68% {t.hero.readinessScore}</small>
             </div>
             <div className='score-ring'>
-              68<small>%</small>
             </div>
           </div>
           <div className='preview-task'>
@@ -358,20 +357,20 @@ export default function Home() {
             </ul>
           </div>
 
-          <div className='bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl p-6 text-white shadow-lg flex flex-col justify-between min-h-[220px]'>
+          <div className='bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl p-6 text-white! shadow-lg flex flex-col justify-between min-h-[220px]'>
             <div>
-              <p className='text-xs text-indigo-100 uppercase font-bold tracking-wider opacity-100'>
+              <p className='text-xs text-indigo-100! uppercase font-bold tracking-wider opacity-100'>
                 {t.skills.masteryDrills}
               </p>
-              <h4 className='text-xl font-bold mt-1 text-white'>{t.skills.startPracticeNow}</h4>
-              <p className='text-xs text-indigo-100 mt-2 leading-relaxed'>
+              <h4 className='text-xl font-bold mt-1 text-white!'>{t.skills.startPracticeNow}</h4>
+              <p className='text-xs text-indigo-100! mt-2 leading-relaxed'>
                 100+ authentic exercises calibrated against official IELTS band scoring standards.
               </p>
             </div>
 
             <Link
               href='/login'
-              className='mt-6 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-white text-indigo-950 font-extrabold text-sm rounded-xl hover:bg-gray-100 transition shadow-md'
+              className='mt-6 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-white! text-indigo-950! font-extrabold text-sm rounded-xl hover:bg-gray-100! transition shadow-md'
             >
               {t.skills.launchPracticeHub} <ArrowRight size={16} />
             </Link>
@@ -481,12 +480,12 @@ export default function Home() {
         <img src="/logo.png" alt="just an ielts" className='w-15 h-12 object-contain' />
         <span className='text-xs sm:text-sm text-gray-600'>{t.footer.rights}</span>
         <div className='flex items-center gap-4'>
-          <Link href='/login' className='text-sm font-semibold text-gray-700 hover:text-indigo-600 transition'>
+          <Link href='/login' className='text-sm font-semibold text-gray-700! hover:text-indigo-600! transition'>
             {t.nav.signIn}
           </Link>
           <Link
             href='/onboarding'
-            className='bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-2xl text-white font-semibold text-sm transition shadow-sm'
+            className='bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-2xl text-white! font-semibold text-sm transition shadow-sm'
           >
             {t.nav.getStarted}
           </Link>
