@@ -39,7 +39,7 @@ export default function LoginPage() {
       <section className='auth-layout'>
         <div className='auth-intro'>
           <div className='intro-badge'>
-            <Sparkles size={15} /> Targeted IELTS Preparation workspace
+            <Sparkles size={15} /> {t.hero.badge}
           </div>
           <h1>
             {t.auth.purposeTitle}
@@ -58,7 +58,7 @@ export default function LoginPage() {
           <div className='quote-card'>
             <span>“</span>
             <p>
-              My score improved because I finally knew <em>what</em> to practise next.
+              {t.auth.maiQuote}
             </p>
             <small>— Mai, band 7.5</small>
           </div>

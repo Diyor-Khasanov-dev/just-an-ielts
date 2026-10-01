@@ -1,6 +1,6 @@
 'use client'
 
-import { Bell, ChevronDown, PanelLeftClose, PanelLeftOpen, Search, Sparkles } from 'lucide-react'
+import { Bell, ChevronDown, Search } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
 import { LanguageSelector } from './LanguageSelector'
 
@@ -9,7 +9,7 @@ interface NavbarProps {
   isCollapsed?: boolean
 }
 
-export function Navbar({ onToggleSidebar, isCollapsed }: NavbarProps) {
+export function Navbar({}: NavbarProps) {
   const { t } = useLanguage()
 
   return (
@@ -37,7 +37,7 @@ export function Navbar({ onToggleSidebar, isCollapsed }: NavbarProps) {
           <span>AN</span>
           <div className="profile-copy hidden lg:block">
             <b>Alex Nguyen</b>
-            <small>Target Band 7.5 · Exam in 24 days</small>
+            <small>{t.navbar.targetBand} 7.5 · {t.navbar.examInDays}</small>
           </div>
           <ChevronDown size={15} className="text-gray-400 hidden lg:block" />
         </button>

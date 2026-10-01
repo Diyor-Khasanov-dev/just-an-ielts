@@ -7,14 +7,13 @@ import {
   Clock,
   FileText,
   Headphones,
-  HelpCircle,
   Pause,
   Play,
   RotateCcw,
   Volume2,
-  VolumeX,
-  XCircle
+  VolumeX
 } from 'lucide-react'
+import { useLanguage } from '@/context/LanguageContext'
 
 const sections = [
   { id: 1, title: 'Section 1 · Student Housing Inquiry', difficulty: 'Band 6.0', duration: '5:20', topic: 'Conversation on accommodation deposit, rent rules & amenities' },
@@ -24,6 +23,9 @@ const sections = [
 ]
 
 export default function ListeningPage() {
+  const { t } = useLanguage()
+  const lm = t.listeningModule
+
   const [activeSection, setActiveSection] = useState(3)
   const [isPlaying, setIsPlaying] = useState(false)
   const [playbackSpeed, setPlaybackSpeed] = useState<number>(1.0)
@@ -49,13 +51,13 @@ export default function ListeningPage() {
       {/* Page Header */}
       <div className="page-heading">
         <div>
-          <p className="eyebrow">IELTS LISTENING MODULE</p>
-          <h1>Listening Practice</h1>
-          <p>Train your ear with authentic exam recordings, variable speed, and synchronized transcripts.</p>
+          <p className="eyebrow">{lm.eyebrow}</p>
+          <h1>{lm.title}</h1>
+          <p>{lm.subtitle}</p>
         </div>
         <div className="flex items-center gap-2">
           <span className="px-3 py-1.5 bg-sky-50 text-sky-700 rounded-full text-xs font-bold border border-sky-200">
-            Current Score: 7.0 / 9.0
+            {lm.currentScore}: 7.0 / 9.0
           </span>
         </div>
       </div>
@@ -79,14 +81,14 @@ export default function ListeningPage() {
               }`}
             >
               <div className="flex items-center justify-between mb-2">
-                <span className="text-xs font-extrabold uppercase text-sky-600">Section {sec.id}</span>
+                <span className="text-xs font-extrabold uppercase text-sky-600">{lm.section} {sec.id}</span>
                 <span className="text-[10px] font-bold text-gray-500 bg-gray-100 px-2 py-0.5 rounded-md">
                   {sec.difficulty}
                 </span>
               </div>
               <h4 className="text-sm font-bold text-gray-900 line-clamp-1">{sec.title.split('·')[1]}</h4>
               <span className="text-xs text-gray-500 mt-1 flex items-center gap-1">
-                <Clock size={12} /> {sec.duration} mins
+                <Clock size={12} /> {sec.duration} {lm.mins}
               </span>
             </button>
           )
@@ -132,7 +134,7 @@ export default function ListeningPage() {
                   : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-50'
               }`}
             >
-              <FileText size={14} /> Transcript
+              <FileText size={14} /> {lm.transcript}
             </button>
           </div>
         </div>
@@ -141,7 +143,7 @@ export default function ListeningPage() {
         <div className="space-y-4">
           <div className="flex items-center justify-between text-xs font-bold text-gray-500">
             <span>02:41</span>
-            <span className="text-sky-600 font-extrabold">Playing Section {activeSection} ({playbackSpeed}x Speed)</span>
+            <span className="text-sky-600 font-extrabold">{lm.playingSection} {activeSection} ({playbackSpeed}x {lm.speed})</span>
             <span>{currentSection.duration}</span>
           </div>
 
@@ -165,7 +167,7 @@ export default function ListeningPage() {
             <button
               onClick={() => setProgress(Math.max(0, progress - 10))}
               className="p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition"
-              title="Rewind 10s"
+              title={lm.rewind10s}
             >
               <RotateCcw size={18} />
             </button>
@@ -180,7 +182,7 @@ export default function ListeningPage() {
             <button
               onClick={() => setIsMuted(!isMuted)}
               className="p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition"
-              title={isMuted ? 'Unmute' : 'Mute'}
+              title={isMuted ? lm.unmute : lm.mute}
             >
               {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
             </button>
@@ -191,8 +193,8 @@ export default function ListeningPage() {
         {showTranscript && (
           <div className="bg-slate-900 text-slate-100 rounded-2xl p-6 text-sm leading-relaxed space-y-3 font-mono border border-slate-800">
             <div className="flex items-center justify-between border-b border-slate-800 pb-2 text-xs text-sky-400 font-bold uppercase tracking-wider">
-              <span>Synchronized Transcript</span>
-              <span>Audio Timestamp: 02:41</span>
+              <span>{lm.syncTranscript}</span>
+              <span>{lm.audioTimestamp}: 02:41</span>
             </div>
             <p className="text-slate-300">
               <span className="text-amber-300 font-bold">Professor Williams:</span> Welcome back everyone. As we saw in the preliminary survey data,{' '}
@@ -212,12 +214,12 @@ export default function ListeningPage() {
       <section className="glass-card rounded-2xl p-6 md:p-8 border border-white/90 shadow-md space-y-6">
         <div className="flex items-center justify-between border-b border-gray-200 pb-4">
           <div>
-            <h3 className="text-lg font-extrabold text-gray-900">Questions 21 - 22: Multiple Choice</h3>
-            <p className="text-xs text-gray-500">Choose the correct letter A, B, or C based on the recording above.</p>
+            <h3 className="text-lg font-extrabold text-gray-900">{lm.questionsTitle}</h3>
+            <p className="text-xs text-gray-500">{lm.questionsDesc}</p>
           </div>
           {submitted && (
             <span className="px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-xs font-bold flex items-center gap-1">
-              <CheckCircle2 size={14} /> Score 2/2 Correct
+              <CheckCircle2 size={14} /> {lm.scoreCorrect}
             </span>
           )}
         </div>
@@ -250,7 +252,7 @@ export default function ListeningPage() {
                       <b className="mr-2 text-sky-600">{opt.key}.</b> {opt.text}
                     </span>
                     {submitted && opt.key === 'B' && (
-                      <span className="text-emerald-600 font-bold text-[11px]">Correct Answer ✓</span>
+                      <span className="text-emerald-600 font-bold text-[11px]">{lm.correctAnswer}</span>
                     )}
                   </button>
                 )
@@ -285,7 +287,7 @@ export default function ListeningPage() {
                       <b className="mr-2 text-sky-600">{opt.key}.</b> {opt.text}
                     </span>
                     {submitted && opt.key === 'A' && (
-                      <span className="text-emerald-600 font-bold text-[11px]">Correct Answer ✓</span>
+                      <span className="text-emerald-600 font-bold text-[11px]">{lm.correctAnswer}</span>
                     )}
                   </button>
                 )
@@ -300,7 +302,7 @@ export default function ListeningPage() {
             onClick={() => setSubmitted(true)}
             className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs rounded-xl shadow-md transition cursor-pointer flex items-center gap-2"
           >
-            Submit Answers & Check Feedback <ArrowRight size={15} />
+            {lm.submitAnswers} <ArrowRight size={15} />
           </button>
         </div>
       </section>

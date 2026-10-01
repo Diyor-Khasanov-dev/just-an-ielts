@@ -21,7 +21,6 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     try {
       const saved = localStorage.getItem(STORAGE_KEY) as Language
       if (saved && (saved === 'eng' || saved === 'uz' || saved === 'ru')) {
-        // Defer the preference update until after hydration to avoid a cascading render.
         timer = window.setTimeout(() => setLangState(saved), 0)
       }
     } catch {
