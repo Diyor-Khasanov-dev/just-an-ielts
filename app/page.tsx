@@ -13,7 +13,6 @@ import {
   Mic2,
   PenLine,
   Play,
-  Sparkles,
   Star,
   Target,
   X,
@@ -21,7 +20,7 @@ import {
 } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
 import { LanguageSelector } from '@/components/LanguageSelector'
-import { ValuePropositionSection } from '@/components/ValuePropositionSection'
+import { InsideLookSection } from '@/components/InsideLookSection'
 
 export default function Home() {
   const { t } = useLanguage()
@@ -98,8 +97,8 @@ export default function Home() {
             <a href='#skills' className='hover:text-indigo-600! transition font-medium text-sm'>
               {t.nav.skillsHub}
             </a>
-            <a href='#value-prop' className='hover:text-indigo-600! transition font-medium text-sm'>
-              {t.valueProp?.tabRoi || 'ROI & Value'}
+            <a href='#inside' className='hover:text-indigo-600! transition font-medium text-sm'>
+              {t.insideLook?.title || 'Take a look inside'}
             </a>
             <Link href='/login' className='hover:text-indigo-600! transition font-medium text-sm'>
               {t.nav.signIn}
@@ -152,11 +151,11 @@ export default function Home() {
                 {t.nav.skillsHub}
               </a>
               <a
-                href='#value-prop'
+                href='#inside'
                 onClick={() => setMobileNavOpen(false)}
                 className='py-2 text-gray-700 hover:text-indigo-600 transition'
               >
-                {t.valueProp?.tabRoi || 'ROI & Value'}
+                {t.insideLook?.title || 'Take a look inside'}
               </a>
               <Link
                 href='/login'
@@ -389,8 +388,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Value Proposition, Deliverables & ROI Section */}
-      <ValuePropositionSection showCta={true} />
+      {/* Take a look inside JUST AN IELTS Section */}
+      <InsideLookSection />
 
       {/* Storytelling Methodology Section */}
       <section id='how' className='method'>

@@ -201,52 +201,30 @@ export interface Translations {
     oneWrongAnswer: string
     disclaimer: string
   }
-  // Value Proposition / What You Buy & ROI
-  valueProp: {
+  // Inside JUST AN IELTS Features Showcase
+  insideLook: {
     eyebrow: string
     title: string
-    titleEm: string
     subtitle: string
-    tabWhatYouBuy: string
-    tabResults: string
-    tabRoi: string
-    buyTitle: string
-    buyDesc: string
-    item1Title: string
-    item1Desc: string
-    item2Title: string
-    item2Desc: string
-    item3Title: string
-    item3Desc: string
-    item4Title: string
-    item4Desc: string
-    resultsTitle: string
-    resultsDesc: string
-    metric1Val: string
-    metric1Label: string
-    metric1Desc: string
-    metric2Val: string
-    metric2Label: string
-    metric2Desc: string
-    metric3Val: string
-    metric3Label: string
-    metric3Desc: string
-    roiTitle: string
-    roiDesc: string
-    tutorCostTitle: string
-    tutorCostVal: string
-    tutorCostSub: string
-    retakeCostTitle: string
-    retakeCostVal: string
-    retakeCostSub: string
-    ourPlatformTitle: string
-    ourPlatformVal: string
-    ourPlatformSub: string
-    netSavingsTitle: string
-    netSavingsVal: string
-    netSavingsDesc: string
-    ctaButton: string
-    guaranteeText: string
+    tryItYourself: string
+    feature1Title: string
+    feature1Desc: string
+    feature1Badge: string
+    feature2Title: string
+    feature2Desc: string
+    feature2Badge: string
+    feature3Title: string
+    feature3Desc: string
+    feature3Badge: string
+    feature4Title: string
+    feature4Desc: string
+    feature4Badge: string
+    feature5Title: string
+    feature5Desc: string
+    feature5Badge: string
+    feature6Title: string
+    feature6Desc: string
+    feature6Badge: string
   }
   // Loading
   loading: {
@@ -449,52 +427,36 @@ export const translations: Record<Language, Translations> = {
       oneWrongAnswer: "One wrong answer doesn't end the test.",
       disclaimer: 'Practice tests are independently built and not affiliated with IDP, British Council, or Cambridge.',
     },
-    valueProp: {
-      eyebrow: 'WHY CHOOSE JUST AN IELTS',
-      title: 'What you get, your expected results &',
-      titleEm: 'unmatched ROI.',
+    insideLook: {
+      eyebrow: 'INSIDE THE PLATFORM',
+      title: 'Take a look inside JUST AN IELTS',
       subtitle:
-        'Investing in your IELTS score is an investment in your global future. Here is exactly what you get, what you can achieve, and why it pays for itself.',
-      tabWhatYouBuy: 'What You Get',
-      tabResults: 'Expected Results',
-      tabRoi: 'Value & Profitability',
-      buyTitle: 'Complete IELTS Preparation Workspace',
-      buyDesc: 'An end-to-end, structured system engineered to systematically eliminate your weak points.',
-      item1Title: 'Instant AI Criteria Diagnostics',
-      item1Desc: 'Real-time feedback on Task Achievement, Coherence, Lexical Resource, and Grammar for Writing & Speaking.',
-      item2Title: 'Authentic Audio & Reading Speed Drills',
-      item2Desc: 'Variable playback speeds, live transcript highlighting, distractor detection, and line timers.',
-      item3Title: 'Cue Card Simulator & Speaking Recorder',
-      item3Desc: '1-minute planning timer, audio recording playback, hesitation metrics, and topic expansion packs.',
-      item4Title: 'Full Mock Test Suite & Progress Analytics',
-      item4Desc: 'Timed full-length mock exams calibrated against official British Council & IDP standards.',
-      resultsTitle: 'Concrete, Quantifiable Outcomes',
-      resultsDesc: 'Our structured methodology delivers measurable score improvements in weeks, not months.',
-      metric1Val: '+1.5 Band',
-      metric1Label: 'Average Score Increase',
-      metric1Desc: 'Achieved by learners practicing 30 mins daily for 6 weeks.',
-      metric2Val: '94%',
-      metric2Label: 'Target Pass Rate',
-      metric2Desc: 'Students hitting their target band on their very first attempt.',
-      metric3Val: '2x Faster',
-      metric3Label: 'Study Efficiency',
-      metric3Desc: 'Save up to 120 hours of ineffective manual worksheet drilling.',
-      roiTitle: 'Why This Purchase Is Extremely Profitable',
-      roiDesc: 'Compare the total cost of traditional IELTS coaching and retakes vs. our platform.',
-      tutorCostTitle: 'Private Tutor & Offline Center',
-      tutorCostVal: '$800 - $2,000',
-      tutorCostSub: 'per course (2-3 months)',
-      retakeCostTitle: 'Failed Exam Retake Fee',
-      retakeCostVal: '$250+',
-      retakeCostSub: 'per retake attempt + stress',
-      ourPlatformTitle: 'just an ielts Full Access',
-      ourPlatformVal: '$12',
-      ourPlatformSub: 'per month (cancel anytime)',
-      netSavingsTitle: 'Estimated Net Savings',
-      netSavingsVal: 'Save $1,000+',
-      netSavingsDesc: 'Pass on your 1st try while avoiding expensive tutors and retake fees.',
-      ctaButton: 'Unlock Full Access Now',
-      guaranteeText: 'Risk-free preparation · Structured for high score success',
+        'Explore the actual tools, interactive modules, and diagnostic feedback systems built to get you to your target band score.',
+      tryItYourself: 'Try It Yourself',
+      feature1Title: 'Instant AI Criteria Diagnostics',
+      feature1Desc:
+        'Real-time feedback on Task Achievement, Coherence, Lexical Resource, and Grammar for Writing & Speaking.',
+      feature1Badge: 'Writing & Speaking',
+      feature2Title: 'Authentic Audio Speed Drills',
+      feature2Desc:
+        'Variable playback speeds (0.75x–1.5x), synchronized transcript highlights, distractor alerts, and Section 1-4 practice.',
+      feature2Badge: 'Listening Mastery',
+      feature3Title: 'Reading Passage Speed Reader',
+      feature3Desc:
+        'Dual-pane passage reader, built-in line timer, synonym finder, and True/False/Not Given paragraph matching.',
+      feature3Badge: 'Reading Accelerator',
+      feature4Title: 'Cue Card Simulator & Audio Recorder',
+      feature4Desc:
+        'Part 1, 2, and 3 examiner prompts with 1-minute cue card planning timer, audio playback, and hesitation tracking.',
+      feature4Badge: 'Speaking Simulator',
+      feature5Title: 'Full Mock Test Suite & Progress Analytics',
+      feature5Desc:
+        'Timed full-length mock exams calibrated against official IDP & British Council scoring standards.',
+      feature5Badge: 'Exam Simulation',
+      feature6Title: 'Vocabulary & Grammar Skill Boosters',
+      feature6Desc:
+        'Topic-specific academic vocabulary packs, collocation builders, and targeted sentence structure drills.',
+      feature6Badge: 'Foundation & Polish',
     },
     loading: {
       loadingWorkspace: 'Loading your workspace...',
@@ -695,52 +657,36 @@ export const translations: Record<Language, Translations> = {
       oneWrongAnswer: "Bitta xato javob bilan imtihon tugamaydi.",
       disclaimer: 'Amaliyot testlari mustaqil yaratilgan va IDP, British Council yoki Cambridge bilan bog‘liq emas.',
     },
-    valueProp: {
-      eyebrow: 'NEGA AYNAN JUST AN IELTS',
-      title: 'Nimaga ega bo‘lasiz, qanday natija va',
-      titleEm: 'yuqori foyda.',
+    insideLook: {
+      eyebrow: 'PLATFORMA ICHIDA',
+      title: 'Take a look inside JUST AN IELTS',
       subtitle:
-        'IELTS ballingizga sarflangan sarmoya — kelajagingizga sarmoyadir. Siz nima olasiz, nimaga erishasiz va bu qanday o‘zini oqlaydi:',
-      tabWhatYouBuy: 'Nima Olasiz',
-      tabResults: 'Kutilayotgan Natijalar',
-      tabRoi: 'Foyda va Tejamkorlik',
-      buyTitle: 'To‘liq IELTS Tayyorgarlik Tizimi',
-      buyDesc: 'Kuchsiz tomonlaringizni tizimli ravishda yo‘qotish uchun yaratilgan mukammal ish maydoni.',
-      item1Title: 'Zudlik bilan AI Tahlili',
-      item1Desc: 'Writing va Speaking bo‘yicha rasmiy IELTS mezonlariga mos onlayn baholash va xatolar tahlili.',
-      item2Title: 'Eshitish va O‘qish Tezlik Mashqlari',
-      item2Desc: 'Audio tezligini moslashtirish, matnni belgilash va vaqt taymeri bilan ishlash.',
-      item3Title: 'Cue Card Simulator va Ovoz Yozish',
-      item3Desc: '1 daqiqalik tayyorgarlik taymeri, nutqni tahlil qilish va maxsus iboralar to‘plami.',
-      item4Title: 'To‘liq Imtihonlar va Tahlillar',
-      item4Desc: 'Rasmiy British Council va IDP standartlariga mos vaqtga asoslangan sinov imtihonlari.',
-      resultsTitle: 'Aniq va O‘lchanadigan Natijalar',
-      resultsDesc: 'Bizning tizimli metodikamiz haftalar ichida sezilarli ball o‘sishini ta’minlaydi.',
-      metric1Val: '+1.5 Ball',
-      metric1Label: 'O‘rtacha Ball O‘sishi',
-      metric1Desc: 'Kunga 30 daqiqadan 6 hafta shug‘ullangan o‘quvchilarda.',
-      metric2Val: '94%',
-      metric2Label: 'Maqsadga Erishish Darajasi',
-      metric2Desc: 'Birinchi urinishdayoq kerakli ballni olgan o‘quvchilar ulushi.',
-      metric3Val: '2x Tezroq',
-      metric3Label: 'Tayyorgarlik Samaradorligi',
-      metric3Desc: 'Samarasiz mashqlardan 120 soatgacha vaqtingizni tejaysiz.',
-      roiTitle: 'Nima Uchun Bu Xarid Juda Foydali?',
-      roiDesc: 'An’anaviy repititor va qayta topshirish xarajatlarini platformamiz bilan solishtiring.',
-      tutorCostTitle: 'Shaxsiy Repititor / O‘quv Markazi',
-      tutorCostVal: '$800 - $2,000',
-      tutorCostSub: 'kurs uchun (2-3 oy)',
-      retakeCostTitle: 'Qayta Topshirish To‘lovi',
-      retakeCostVal: '$250+',
-      retakeCostSub: 'har bir qayta topshirish uchun',
-      ourPlatformTitle: 'just an ielts To‘liq Kirish',
-      ourPlatformVal: '$12',
-      ourPlatformSub: 'oyiga (istalgancha bekor qilish)',
-      netSavingsTitle: 'Sof Vaqt va Pul Tejomi',
-      netSavingsVal: '$1,000+ Tejaysiz',
-      netSavingsDesc: 'Qimmat repititorlar va qayta topshirish to‘lovlarisiz 1-urinishda topshiring.',
-      ctaButton: 'To‘liq Kirishni Ochish',
-      guaranteeText: 'Xavfsiz tayyorgarlik · Yuqori ball uchun kafolatlangan tizim',
+        'Maqsadli ballingizga erishishingiz uchun yaratilgan haqiqiy vositalar, interaktiv modullar va AI tahlil tizimlarini ko‘ring.',
+      tryItYourself: 'Try It Yourself',
+      feature1Title: 'Zudlik bilan AI Tahlili',
+      feature1Desc:
+        'Writing va Speaking bo‘yicha mezonlarga mos onlayn baholash, xatolar tahlili va Band 9 namunalari.',
+      feature1Badge: 'Yozish va Gapirish',
+      feature2Title: 'Eshitish va Tezlik Mashqlari',
+      feature2Desc:
+        'Audio tezligini moslashtirish (0.75x–1.5x), matnni belgilash va vaqt taymeri bilan ishlash.',
+      feature2Badge: 'Tinglash Ko‘nikmasi',
+      feature3Title: 'O‘qish va Tezlik O‘lchagich',
+      feature3Desc:
+        'Ikki panelli matn o‘quvchi, taymer, sinonimlar qidiruvi va matn sarlavhalarini moslashtirish.',
+      feature3Badge: 'O‘qish Tezlatgichi',
+      feature4Title: 'Cue Card Simulyatori va Ovoz Yozish',
+      feature4Desc:
+        '1 daqiqalik tayyorgarlik taymeri, ovozni qayta eshitish va mavzular bo‘yicha maxsus lug‘atlar.',
+      feature4Badge: 'Gapirish Simulyatori',
+      feature5Title: 'To‘liq Sinov Imtihonlari va Tahlillar',
+      feature5Desc:
+        'Rasmiy British Council va IDP standartlariga mos vaqtga आधारित to‘liq sinov imtihonlari.',
+      feature5Badge: 'Imtihon Simulyatsiyasi',
+      feature6Title: 'Lug‘at va Grammatika Mashqlari',
+      feature6Desc:
+        'Akademik so‘zlar to‘plami, iboralar va grammatik tuzilmalarni mukammallashtirish mashqlari.',
+      feature6Badge: 'Poydevor va Mahorat',
     },
     loading: {
       loadingWorkspace: 'Ish maydoni yuklanmoqda...',
@@ -941,52 +887,36 @@ export const translations: Record<Language, Translations> = {
       oneWrongAnswer: 'Одна ошибка — это еще не конец теста.',
       disclaimer: 'Практические тесты разработаны независимо и не связаны с IDP, British Council или Cambridge.',
     },
-    valueProp: {
-      eyebrow: 'ПОЧЕМУ ВЫБИРАЮТ JUST AN IELTS',
-      title: 'Что вы покупаете, результаты и',
-      titleEm: 'высокая окупаемость.',
+    insideLook: {
+      eyebrow: 'ВНУТРИ ПЛАТФОРМЫ',
+      title: 'Take a look inside JUST AN IELTS',
       subtitle:
-        'Инвестиция в балл IELTS — это инвестиция в ваше международное будущее. Вот что именно вы получаете, каких результатов достигнете и почему это выгодно.',
-      tabWhatYouBuy: 'Что Вы Получаете',
-      tabResults: 'Ожидаемые Результаты',
-      tabRoi: 'Выгода и Окупаемость',
-      buyTitle: 'Полная Экосистема Подготовки к IELTS',
-      buyDesc: 'Законченная структурированная система, созданная для полного устранения ваших слабых мест.',
-      item1Title: 'Мгновенная ИИ-Диагностика Критериев',
-      item1Desc: 'Анализ Task Achievement, Coherence, Lexical Resource и Grammar для Writing и Speaking в реальном времени.',
-      item2Title: 'Тренировка Скорости Чтения и Аудирования',
-      item2Desc: 'Управление скоростью аудио, синхронный подсвет текста, таймер чтения и распознавание ловушек.',
-      item3Title: 'Симулятор Cue Card и Запись Речи',
-      item3Desc: 'Таймер на 1 минуту, прослушивание записей, анализ паузирования и тематические подборки слов.',
-      item4Title: 'Полные Пробные Тесты и Аналитика',
-      item4Desc: 'Полноформатные пробные экзамены на время по стандартам British Council и IDP.',
-      resultsTitle: 'Конкретные, Измеримые Результаты',
-      resultsDesc: 'Наша методология обеспечивает рост балла за недели, а не месяцы.',
-      metric1Val: '+1.5 Балла',
-      metric1Label: 'Средний Рост Балла',
-      metric1Desc: 'При занятиях по 30 минут в день в течение 6 недель.',
-      metric2Val: '94%',
-      metric2Label: 'Успех с Первой Попытки',
-      metric2Desc: 'Учеников достигают целевого балла с первого раза.',
-      metric3Val: 'В 2 раза Быстрее',
-      metric3Label: 'Эффективность Учебы',
-      metric3Desc: 'Экономия до 120 часов на хаотичной самостоятельной учебе.',
-      roiTitle: 'Почему Покупка Максимально Выгодна',
-      roiDesc: 'Сравните стоимость традиционных курсов и пересдач с доступным доступом к платформе.',
-      tutorCostTitle: 'Репетитор или Офлайн-Центр',
-      tutorCostVal: '$800 - $2,000',
-      tutorCostSub: 'за курс (2-3 месяца)',
-      retakeCostTitle: 'Стоимость Пересдачи Экзамена',
-      retakeCostVal: '$250+',
-      retakeCostSub: 'за каждую попытку + стресс',
-      ourPlatformTitle: 'just an ielts Полный Доступ',
-      ourPlatformVal: '$12',
-      ourPlatformSub: 'в месяц (отмена в любой момент)',
-      netSavingsTitle: 'Чистая Экономия',
-      netSavingsVal: 'Экономия от $1,000+',
-      netSavingsDesc: 'Сдайте с 1-й попытки без дорогих курсов и повторных оплатных сборов.',
-      ctaButton: 'Открыть Полный Доступ',
-      guaranteeText: 'Безопасная подготовка · Гарантия системного подхода',
+        'Ознакомьтесь с реальными инструментами, интерактивными модулями и диагностикой ИИ для достижения вашего целевого балла.',
+      tryItYourself: 'Try It Yourself',
+      feature1Title: 'Мгновенная ИИ-Диагностика Критериев',
+      feature1Desc:
+        'Анализ Task Achievement, Coherence, Lexical Resource и Grammar для Writing и Speaking в реальном времени.',
+      feature1Badge: 'Письмо и Говорение',
+      feature2Title: 'Тренировка Аудирования и Скорости',
+      feature2Desc:
+        'Управление скоростью аудио (0.75x–1.5x), синхронный подсвет текста, таймер и распознавание ловушек.',
+      feature2Badge: 'Аудирование',
+      feature3Title: 'Интерактивное Чтение с Таймером',
+      feature3Desc:
+        'Двухпанельное чтение, встроенный таймер, поиск синонимов и отработка True/False/Not Given.',
+      feature3Badge: 'Ускоритель Чтения',
+      feature4Title: 'Симулятор Cue Card и Запись Речи',
+      feature4Desc:
+        'Задания карточек Parts 1, 2, 3 с таймером на 1 минуту, прослушиванием записей и анализом задержек.',
+      feature4Badge: 'Симулятор Говорения',
+      feature5Title: 'Полные Пробные Тесты и Аналитика',
+      feature5Desc:
+        'Полноформатные пробные экзамены на время по официальным стандартам British Council и IDP.',
+      feature5Badge: 'Симуляция Экзамена',
+      feature6Title: 'Словарь и Грамматический Тренажер',
+      feature6Desc:
+        'Тематические подборки академических слов, устойчивые сочетания и отработка сложных грамматических конструкций.',
+      feature6Badge: 'База и Совершенствование',
     },
     loading: {
       loadingWorkspace: 'Загрузка рабочего пространства...',
