@@ -88,16 +88,16 @@ export default function Home() {
 
           {/* Desktop Navigation */}
           <nav className='hidden md:flex items-center gap-5 lg:gap-6'>
-            <a href='#how' className='hover:text-indigo-600 transition font-medium text-sm'>
+            <a href='#how' className='hover:text-indigo-600! transition font-medium text-sm'>
               {t.nav.howItWorks}
             </a>
-            <a href='#estimator' className='hover:text-indigo-600 transition font-medium text-sm'>
+            <a href='#estimator' className='hover:text-indigo-600! transition font-medium text-sm'>
               {t.nav.estimator}
             </a>
-            <a href='#skills' className='hover:text-indigo-600 transition font-medium text-sm'>
+            <a href='#skills' className='hover:text-indigo-600! transition font-medium text-sm'>
               {t.nav.skillsHub}
             </a>
-            <Link href='/login' className='hover:text-indigo-600 transition font-medium text-sm'>
+            <Link href='/login' className='hover:text-indigo-600! transition font-medium text-sm'>
               {t.nav.signIn}
             </Link>
 
