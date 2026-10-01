@@ -61,8 +61,8 @@ export function LanguageSelector({ className = '', align = 'right' }: LanguageSe
         aria-haspopup="listbox"
         aria-label="Select language"
       >
-        <Globe size={16} className="text-gray-500 dark:text-gray-400 shrink-0" />
-        <span className="font-semibold text-xs text-gray-800 dark:text-gray-200">
+        <Globe size={16} className="text-gray-500 shrink-0" />
+        <span className="font-semibold text-xs text-gray-800">
           {currentLang.shortLabel}
         </span>
         <ChevronDown
@@ -92,13 +92,13 @@ export function LanguageSelector({ className = '', align = 'right' }: LanguageSe
                   onClick={() => selectLanguage(code)}
                   className={`lang-dropdown-item ${isSelected ? 'is-selected' : ''}`}
                 >
-                  <span className="font-bold text-[11px] px-1.5 py-0.5 rounded bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-slate-300 group-hover:bg-indigo-500 group-hover:text-white transition-colors">
+                  <span className="font-bold text-[11px] px-1.5 py-0.5 rounded bg-gray-100 text-gray-600 group-hover:bg-indigo-500 group-hover:text-white transition-colors">
                     {shortLabel}
                   </span>
-                  <span className="flex-1 text-xs font-medium text-gray-800 dark:text-slate-200 text-left">
+                  <span className="flex-1 text-xs font-medium text-gray-800 text-left">
                     {label}
                   </span>
-                  {isSelected && <Check size={14} className="text-indigo-600 dark:text-indigo-400 shrink-0" />}
+                  {isSelected && <Check size={14} className="text-indigo-600 shrink-0" />}
                 </button>
               )
             })}

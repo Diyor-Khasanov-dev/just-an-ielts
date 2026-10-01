@@ -156,9 +156,6 @@ export interface Translations {
     dailyNotifications: string
     dailyNotificationsDesc: string
     appearanceHeader: string
-    themeMode: string
-    lightTheme: string
-    darkTheme: string
     languagePreference: string
     selectLanguage: string
     saveChanges: string
@@ -346,11 +343,11 @@ export const translations: Record<Language, Translations> = {
       eyebrow: 'PREFERENCES & GOALS',
       title: 'Settings',
       subtitle:
-        'Customize your target band, exam date timeline, daily reminders, theme mode, language, and profile preferences.',
+        'Customize your target band, exam date timeline, daily reminders, language, and profile preferences.',
       tabProfile: 'Profile & Band Target',
       tabReminders: 'Practice Reminders',
       tabSecurity: 'Account Security',
-      tabAppearance: 'Appearance & Language',
+      tabAppearance: 'Language',
       profileHeader: 'Profile & Band Goals',
       fullName: 'Full Name',
       emailAddress: 'Email Address',
@@ -361,10 +358,7 @@ export const translations: Record<Language, Translations> = {
       minsDay: 'mins/day',
       dailyNotifications: 'Daily Study Notifications',
       dailyNotificationsDesc: 'Receive email reminders when your streak is at risk.',
-      appearanceHeader: 'Theme Mode & Language',
-      themeMode: 'Theme Mode',
-      lightTheme: 'Light Theme',
-      darkTheme: 'Dark Theme',
+      appearanceHeader: 'Language Preferences',
       languagePreference: 'Language Preference',
       selectLanguage: 'Select Language',
       saveChanges: 'Save Changes',
@@ -548,11 +542,11 @@ export const translations: Record<Language, Translations> = {
       eyebrow: 'AFZALLIKLAR VA MAQSADLAR',
       title: 'Sozlamalar',
       subtitle:
-        'Maqsadli ballingizni, imtihon sanasini, kunlik eslatmalarni, mavzu rejimini va tilni sozlang.',
+        'Maqsadli ballingizni, imtihon sanasini, kunlik eslatmalarni va tilni sozlang.',
       tabProfile: 'Profil va Maqsad',
       tabReminders: 'Eslatmalar',
       tabSecurity: 'Xavfsizlik',
-      tabAppearance: 'Mavzu va Til',
+      tabAppearance: 'Til',
       profileHeader: 'Profil va Maqsadlar',
       fullName: 'To‘liq ism',
       emailAddress: 'Email manzil',
@@ -563,10 +557,7 @@ export const translations: Record<Language, Translations> = {
       minsDay: 'daqiqa/kun',
       dailyNotifications: 'Kunlik bildirishnomalar',
       dailyNotificationsDesc: 'Ketma-ketligingiz xavf ostida bo‘lganda email xabar oling.',
-      appearanceHeader: 'Mavzu rejimi va Til',
-      themeMode: 'Mavzu rejimi',
-      lightTheme: 'Yorug‘ mavzu',
-      darkTheme: 'Tungi mavzu',
+      appearanceHeader: 'Til sozlamalari',
       languagePreference: 'Tanlangan til',
       selectLanguage: 'Tilni tanlang',
       saveChanges: 'O‘zgarishlarni saqlash',
@@ -750,11 +741,11 @@ export const translations: Record<Language, Translations> = {
       eyebrow: 'ПРЕДПОЧТЕНИЯ И ЦЕЛИ',
       title: 'Настройки',
       subtitle:
-        'Настройте целевой балл, дату экзамена, напоминания, тему и языковые предпочтения.',
+        'Настройте целевой балл, дату экзамена, напоминания и языковые предпочтения.',
       tabProfile: 'Профиль и Цель',
       tabReminders: 'Напоминания',
       tabSecurity: 'Безопасность',
-      tabAppearance: 'Внешний вид и Язык',
+      tabAppearance: 'Язык',
       profileHeader: 'Профиль и Цели',
       fullName: 'Полное имя',
       emailAddress: 'Email адрес',
@@ -765,10 +756,7 @@ export const translations: Record<Language, Translations> = {
       minsDay: 'мин/день',
       dailyNotifications: 'Ежедневные уведомления',
       dailyNotificationsDesc: 'Получайте напоминания по почте, когда серии практики грозит сброс.',
-      appearanceHeader: 'Тема оформления и Язык',
-      themeMode: 'Тема оформления',
-      lightTheme: 'Светлая тема',
-      darkTheme: 'Тёмная тема',
+      appearanceHeader: 'Языковые настройки',
       languagePreference: 'Предпочитаемый язык',
       selectLanguage: 'Выберите язык',
       saveChanges: 'Сохранить изменения',

@@ -6,7 +6,6 @@ import { useRouter } from 'next/navigation'
 import { ArrowRight, Sparkles } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
 import { LanguageSelector } from '@/components/LanguageSelector'
-import { ThemeToggle } from '@/components/ThemeToggle'
 
 export default function LoginPage() {
   const router = useRouter()
@@ -27,7 +26,6 @@ export default function LoginPage() {
         </Link>
         <div className='flex items-center gap-2 sm:gap-4'>
           <LanguageSelector align='right' />
-          <ThemeToggle />
 
           <p className="hidden sm:block text-xs">
             {t.auth.newToIelts}{' '}

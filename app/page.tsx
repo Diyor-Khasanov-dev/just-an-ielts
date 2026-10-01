@@ -21,7 +21,6 @@ import {
 } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
 import { LanguageSelector } from '@/components/LanguageSelector'
-import { ThemeToggle } from '@/components/ThemeToggle'
 
 export default function Home() {
   const { t } = useLanguage()
@@ -44,7 +43,7 @@ export default function Home() {
       title: 'Train your ear for authentic exam pace.',
       icon: Headphones,
       badge: 'AUDIO SPEED DRILLS',
-      color: 'text-sky-500 bg-sky-50 dark:bg-sky-950/40 border-sky-200 dark:border-sky-800',
+      color: 'text-sky-500 bg-sky-50 border-sky-200',
       description: 'Practice with accent variations (British, Australian, North American), track answer locations in real time, and build stamina for Section 4 academic lectures.',
       bullets: ['Variable audio playback speeds (0.75x to 1.5x)', 'Instant transcript sync with highlighted keywords', 'Distractor detection alerts in tricky conversations']
     },
@@ -52,7 +51,7 @@ export default function Home() {
       title: 'Build speed without sacrificing accuracy.',
       icon: BookOpen,
       badge: 'PARAGRAPH MATCHING',
-      color: 'text-amber-500 bg-amber-50 dark:bg-amber-950/40 border-amber-200 dark:border-amber-800',
+      color: 'text-amber-500 bg-amber-50 border-amber-200',
       description: 'Master True/False/Not Given questions, paragraph heading matching, and scientific passage scanning with built-in speed timers and text highlight tools.',
       bullets: ['Dual-pane passage reader with live line timer', 'Instant synonym finder for question keywords', 'Passage 1, 2 & 3 exam difficulty breakdown']
     },
@@ -60,7 +59,7 @@ export default function Home() {
       title: 'Turn complex ideas into Band 8+ responses.',
       icon: PenLine,
       badge: 'AI CRITERIA FEEDBACK',
-      color: 'text-indigo-500 bg-indigo-50 dark:bg-indigo-950/40 border-indigo-200 dark:border-indigo-800',
+      color: 'text-indigo-500 bg-indigo-50 border-indigo-200',
       description: 'Get instant diagnostic feedback aligned directly with official IELTS descriptors: Task Achievement, Coherence & Cohesion, Lexical Resource, and Grammar.',
       bullets: ['Real-time word count & paragraph flow monitor', 'Band 9 model answer side-by-side comparison', 'Linking word and collocation enhancer']
     },
@@ -68,7 +67,7 @@ export default function Home() {
       title: 'Speak naturally with confidence and clarity.',
       icon: Mic2,
       badge: 'CUE CARD SIMULATOR',
-      color: 'text-emerald-500 bg-emerald-50 dark:bg-emerald-950/40 border-emerald-200 dark:border-emerald-800',
+      color: 'text-emerald-500 bg-emerald-50 border-emerald-200',
       description: 'Simulate Parts 1, 2, and 3 with realistic examiner prompts, prep countdown timers, audio recording previews, and vocabulary fluency suggestions.',
       bullets: ['Part 2 cue card 1-minute planning timer', 'Filler word & hesitation frequency analysis', 'Topic-specific vocabulary expansion packs']
     }
@@ -89,21 +88,20 @@ export default function Home() {
 
           {/* Desktop Navigation */}
           <nav className='hidden md:flex items-center gap-5 lg:gap-6'>
-            <a href='#how' className='hover:text-indigo-600 dark:hover:text-indigo-400 transition font-medium text-sm'>
+            <a href='#how' className='hover:text-indigo-600 transition font-medium text-sm'>
               {t.nav.howItWorks}
             </a>
-            <a href='#estimator' className='hover:text-indigo-600 dark:hover:text-indigo-400 transition font-medium text-sm'>
+            <a href='#estimator' className='hover:text-indigo-600 transition font-medium text-sm'>
               {t.nav.estimator}
             </a>
-            <a href='#skills' className='hover:text-indigo-600 dark:hover:text-indigo-400 transition font-medium text-sm'>
+            <a href='#skills' className='hover:text-indigo-600 transition font-medium text-sm'>
               {t.nav.skillsHub}
             </a>
-            <Link href='/login' className='hover:text-indigo-600 dark:hover:text-indigo-400 transition font-medium text-sm'>
+            <Link href='/login' className='hover:text-indigo-600 transition font-medium text-sm'>
               {t.nav.signIn}
             </Link>
 
             <LanguageSelector align='right' />
-            <ThemeToggle />
 
             <Link className='nav-cta' href='/login'>
               {t.nav.startLearning} <ArrowRight size={15} />
@@ -113,10 +111,9 @@ export default function Home() {
           {/* Mobile controls & toggle */}
           <div className='flex items-center gap-2 md:hidden'>
             <LanguageSelector align='right' />
-            <ThemeToggle />
             <button
               onClick={() => setMobileNavOpen((prev) => !prev)}
-              className='p-2 text-gray-700 dark:text-slate-200 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-xl transition'
+              className='p-2 text-gray-700 hover:bg-gray-100 rounded-xl transition'
               aria-label='Toggle navigation menu'
               aria-expanded={mobileNavOpen}
             >
@@ -127,39 +124,39 @@ export default function Home() {
 
         {/* Mobile Navigation Drawer */}
         {mobileNavOpen && (
-          <div className='md:hidden border-t border-gray-200/80 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl px-6 py-5 shadow-2xl space-y-4 animate-in slide-in-from-top duration-200'>
+          <div className='md:hidden border-t border-gray-200/80 bg-white/95 backdrop-blur-xl px-6 py-5 shadow-2xl space-y-4 animate-in slide-in-from-top duration-200'>
             <nav className='flex flex-col gap-3 font-semibold text-sm'>
               <a
                 href='#how'
                 onClick={() => setMobileNavOpen(false)}
-                className='py-2 text-gray-700 dark:text-slate-300 hover:text-indigo-600 transition'
+                className='py-2 text-gray-700 hover:text-indigo-600 transition'
               >
                 {t.nav.howItWorks}
               </a>
               <a
                 href='#estimator'
                 onClick={() => setMobileNavOpen(false)}
-                className='py-2 text-gray-700 dark:text-slate-300 hover:text-indigo-600 transition'
+                className='py-2 text-gray-700 hover:text-indigo-600 transition'
               >
                 {t.nav.estimator}
               </a>
               <a
                 href='#skills'
                 onClick={() => setMobileNavOpen(false)}
-                className='py-2 text-gray-700 dark:text-slate-300 hover:text-indigo-600 transition'
+                className='py-2 text-gray-700 hover:text-indigo-600 transition'
               >
                 {t.nav.skillsHub}
               </a>
               <Link
                 href='/login'
                 onClick={() => setMobileNavOpen(false)}
-                className='py-2 text-gray-700 dark:text-slate-300 hover:text-indigo-600 transition'
+                className='py-2 text-gray-700 hover:text-indigo-600 transition'
               >
                 {t.nav.signIn}
               </Link>
             </nav>
 
-            <div className='pt-3 border-t border-gray-100 dark:border-slate-800 flex items-center justify-between'>
+            <div className='pt-3 border-t border-gray-100 flex items-center justify-between'>
               <Link
                 className='nav-cta w-full text-center justify-center'
                 href='/login'
@@ -228,7 +225,7 @@ export default function Home() {
               <b>{t.hero.writingSessionTitle}</b>
               <small>{t.hero.writingSessionDesc}</small>
             </div>
-            <ArrowRight size={18} className='text-indigo-600 dark:text-indigo-400' />
+            <ArrowRight size={18} className='text-indigo-600' />
           </div>
           <div className='preview-bars'>
             <span />
@@ -241,13 +238,13 @@ export default function Home() {
 
       {/* Interactive Band Target Estimator Section */}
       <section id='estimator' className='max-w-[1100px] w-full mx-auto px-6 py-16'>
-        <div className='glass-card rounded-3xl p-8 md:p-12 border border-white/80 dark:border-slate-800 shadow-xl'>
+        <div className='glass-card rounded-3xl p-8 md:p-12 border border-white/80 shadow-xl'>
           <div className='text-center max-w-2xl mx-auto mb-10'>
             <p className='eyebrow'>{t.estimator.eyebrow}</p>
-            <h2 className='text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white'>
+            <h2 className='text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900'>
               {t.estimator.title} Band {targetBand.toFixed(1)}
             </h2>
-            <p className='text-gray-500 dark:text-slate-400 text-sm md:text-base mt-2'>
+            <p className='text-gray-500 text-sm md:text-base mt-2'>
               {t.estimator.subtitle}
             </p>
           </div>
@@ -260,8 +257,8 @@ export default function Home() {
                 onClick={() => setTargetBand(score)}
                 className={`px-5 py-2.5 rounded-full font-bold text-sm transition-all duration-200 cursor-pointer ${
                   targetBand === score
-                    ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-200 dark:shadow-indigo-950 scale-105'
-                    : 'bg-white dark:bg-slate-800 text-gray-700 dark:text-slate-300 border border-gray-200 dark:border-slate-700 hover:border-indigo-300 hover:bg-indigo-50/50 hover:text-indigo-700'
+                    ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-200 scale-105'
+                    : 'bg-white text-gray-700 border border-gray-200 hover:border-indigo-300 hover:bg-indigo-50/50 hover:text-indigo-700'
                 }`}
               >
                 Band {score.toFixed(1)}
@@ -270,35 +267,35 @@ export default function Home() {
           </div>
 
           {/* Estimator Details Display */}
-          <div className='grid grid-cols-1 md:grid-cols-4 gap-6 bg-white/80 dark:bg-slate-800/80 rounded-2xl p-6 border border-gray-100 dark:border-slate-700 shadow-sm'>
+          <div className='grid grid-cols-1 md:grid-cols-4 gap-6 bg-white/80 rounded-2xl p-6 border border-gray-100 shadow-sm'>
             <div className='flex flex-col gap-1'>
               <div className='flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-indigo-500'>
                 <Clock size={16} /> {t.estimator.pace}
               </div>
-              <p className='text-2xl font-extrabold text-gray-900 dark:text-white'>
+              <p className='text-2xl font-extrabold text-gray-900'>
                 {estimatorMap[targetBand].hours}
               </p>
-              <span className='text-xs text-gray-500 dark:text-slate-400'>{t.estimator.dailyPractice}</span>
+              <span className='text-xs text-gray-500'>{t.estimator.dailyPractice}</span>
             </div>
 
             <div className='flex flex-col gap-1'>
               <div className='flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-purple-500'>
                 <Zap size={16} /> {t.estimator.timeline}
               </div>
-              <p className='text-2xl font-extrabold text-gray-900 dark:text-white'>
+              <p className='text-2xl font-extrabold text-gray-900'>
                 {estimatorMap[targetBand].duration}
               </p>
-              <span className='text-xs text-gray-500 dark:text-slate-400'>{t.estimator.targetReadiness}</span>
+              <span className='text-xs text-gray-500'>{t.estimator.targetReadiness}</span>
             </div>
 
             <div className='flex flex-col gap-1 md:col-span-2'>
-              <div className='flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400'>
+              <div className='flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-600'>
                 <Target size={16} /> {t.estimator.priorityStrategy}
               </div>
-              <p className='text-sm font-semibold text-gray-800 dark:text-slate-200 leading-snug'>
+              <p className='text-sm font-semibold text-gray-800 leading-snug'>
                 {estimatorMap[targetBand].focus}
               </p>
-              <span className='text-xs text-gray-500 dark:text-slate-400'>
+              <span className='text-xs text-gray-500'>
                 {t.estimator.difficultyLevel} <b>{estimatorMap[targetBand].difficulty}</b>
               </span>
             </div>
@@ -312,7 +309,7 @@ export default function Home() {
         <h2>{t.skills.title}</h2>
 
         {/* Skill Tab Navigation */}
-        <div className='flex flex-wrap gap-2 mb-8 border-b border-gray-200 dark:border-slate-800 pb-4'>
+        <div className='flex flex-wrap gap-2 mb-8 border-b border-gray-200 pb-4'>
           {(['listening', 'reading', 'writing', 'speaking'] as const).map((key) => {
             const isTabActive = activeTab === key
             const Icon = tabDetails[key].icon
@@ -322,8 +319,8 @@ export default function Home() {
                 onClick={() => setActiveTab(key)}
                 className={`flex items-center gap-2 px-5 py-3 rounded-xl font-semibold text-sm transition-all cursor-pointer ${
                   isTabActive
-                    ? 'bg-indigo-600 text-white shadow-md shadow-indigo-100 dark:shadow-none'
-                    : 'bg-white dark:bg-slate-800 text-gray-700 dark:text-slate-300 border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700'
+                    ? 'bg-indigo-600 text-white shadow-md shadow-indigo-100'
+                    : 'bg-white text-gray-700 border border-gray-200 hover:bg-gray-50'
                 }`}
               >
                 <Icon size={18} />
@@ -334,17 +331,17 @@ export default function Home() {
         </div>
 
         {/* Selected Skill Highlight Detail */}
-        <div className='glass-card rounded-2xl p-8 border border-white/90 dark:border-slate-800 grid grid-cols-1 lg:grid-cols-3 gap-8 items-center'>
+        <div className='glass-card rounded-2xl p-8 border border-white/90 grid grid-cols-1 lg:grid-cols-3 gap-8 items-center'>
           <div className='lg:col-span-2 space-y-4'>
             <span
               className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border ${activeTabData.color}`}
             >
               {activeTabData.badge}
             </span>
-            <h3 className='text-2xl md:text-3xl font-extrabold text-gray-900 dark:text-white leading-tight'>
+            <h3 className='text-2xl md:text-3xl font-extrabold text-gray-900 leading-tight'>
               {activeTabData.title}
             </h3>
-            <p className='text-gray-600 dark:text-slate-300 text-sm md:text-base leading-relaxed'>
+            <p className='text-gray-600 text-sm md:text-base leading-relaxed'>
               {activeTabData.description}
             </p>
 
@@ -352,7 +349,7 @@ export default function Home() {
               {activeTabData.bullets.map((bullet, idx) => (
                 <li
                   key={idx}
-                  className='flex items-center gap-2.5 text-sm text-gray-700 dark:text-slate-300 font-medium'
+                  className='flex items-center gap-2.5 text-sm text-gray-700 font-medium'
                 >
                   <CheckCircle2 size={16} className='text-emerald-500 shrink-0' />
                   <span>{bullet}</span>
@@ -391,7 +388,7 @@ export default function Home() {
             <br />
             <em>{t.method.titleEm}</em>
           </h2>
-          <p className='text-gray-500 dark:text-slate-400 text-sm leading-relaxed mt-4'>
+          <p className='text-gray-500 text-sm leading-relaxed mt-4'>
             {t.method.subtitle}
           </p>
         </div>
@@ -419,7 +416,7 @@ export default function Home() {
       <section className='max-w-[1100px] w-full mx-auto px-6 py-12'>
         <div className='text-center mb-10'>
           <p className='eyebrow'>{t.testimonials.eyebrow}</p>
-          <h2 className='text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight'>
+          <h2 className='text-3xl font-extrabold text-gray-900 tracking-tight'>
             {t.testimonials.title}
           </h2>
         </div>
@@ -451,26 +448,26 @@ export default function Home() {
               avatar: 'ER',
             },
           ].map((item, idx) => (
-            <div key={idx} className='glass-card rounded-2xl p-6 border border-white/80 dark:border-slate-800 space-y-3'>
+            <div key={idx} className='glass-card rounded-2xl p-6 border border-white/80 space-y-3'>
               <div className='flex items-center justify-between'>
                 <div className='flex items-center gap-1 text-amber-400'>
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} size={14} fill='currentColor' />
                   ))}
                 </div>
-                <span className='text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/50 px-2 py-0.5 rounded-md border border-emerald-100 dark:border-emerald-800'>
+                <span className='text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-100'>
                   {item.score} <small className='text-gray-400 font-normal'>{item.oldScore}</small>
                 </span>
               </div>
-              <p className='text-sm text-gray-600 dark:text-slate-300 italic leading-relaxed'>
+              <p className='text-sm text-gray-600 italic leading-relaxed'>
                 &ldquo;{item.quote}&rdquo;
               </p>
-              <div className='flex items-center gap-3 pt-2 border-t border-gray-100 dark:border-slate-800'>
+              <div className='flex items-center gap-3 pt-2 border-t border-gray-100'>
                 <div className='w-8 h-8 rounded-full bg-indigo-600 text-white font-bold text-xs flex items-center justify-center'>
                   {item.avatar}
                 </div>
                 <div>
-                  <h5 className='text-xs font-bold text-gray-900 dark:text-white'>{item.name}</h5>
+                  <h5 className='text-xs font-bold text-gray-900'>{item.name}</h5>
                   <span className='text-[11px] text-gray-400'>{t.testimonials.verifiedLearner}</span>
                 </div>
               </div>
@@ -480,11 +477,11 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className='mt-auto border-t border-gray-200 dark:border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left w-full py-6 px-6 max-w-[1100px] mx-auto'>
+      <footer className='mt-auto border-t border-gray-200 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left w-full py-6 px-6 max-w-[1100px] mx-auto'>
         <img src="/logo.png" alt="just an ielts" className='w-15 h-12 object-contain' />
-        <span className='text-xs sm:text-sm text-gray-600 dark:text-slate-400'>{t.footer.rights}</span>
+        <span className='text-xs sm:text-sm text-gray-600'>{t.footer.rights}</span>
         <div className='flex items-center gap-4'>
-          <Link href='/login' className='text-sm font-semibold text-gray-700 dark:text-slate-300 hover:text-indigo-600 transition'>
+          <Link href='/login' className='text-sm font-semibold text-gray-700 hover:text-indigo-600 transition'>
             {t.nav.signIn}
           </Link>
           <Link
