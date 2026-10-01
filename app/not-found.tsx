@@ -81,12 +81,6 @@ export default function NotFound() {
               <Link href='/' className='primary-action'>
                 <Home size={17} /> {t.notFound.backHome}
               </Link>
-              <Link
-                href='/dashboard/practice'
-                className='inline-flex items-center gap-2 px-5 py-3 rounded-xl font-bold text-sm text-indigo-600 bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 transition duration-200'
-              >
-                <Compass size={17} /> {t.notFound.continuePracticing} <ArrowRight size={15} />
-              </Link>
             </div>
 
             {/* Quick Skill Access */}
@@ -215,19 +209,6 @@ export default function NotFound() {
 
         </div>
       </section>
-
-      {/* Footer Banner */}
-      <footer className='mt-auto border-t border-gray-200 bg-white/60 backdrop-blur-md py-6 px-6'>
-        <div className='max-w-[1200px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500 text-center sm:text-left'>
-          <div className='flex items-center gap-3'>
-            <img src='/logo.png' alt='just an ielts' className='w-12 h-10 object-contain' />
-            <span>{t.footer.rights}</span>
-          </div>
-          <p className='max-w-md text-[11px] leading-relaxed text-gray-400'>
-            {t.notFound.disclaimer}
-          </p>
-        </div>
-      </footer>
     </main>
   )
 }

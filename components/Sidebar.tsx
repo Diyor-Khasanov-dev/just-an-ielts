@@ -35,7 +35,6 @@ export function Sidebar({ isOpen, isCollapsed, onClose, onToggleCollapse }: Side
 
   const mainLinks = [
     { href: '/dashboard', label: t.sidebar.overview, icon: LayoutDashboard },
-    { href: '/dashboard/practice', label: t.sidebar.practiceHub, icon: Target },
     { href: '/dashboard/tests', label: t.sidebar.mockTests, icon: BookOpen },
     { href: '/dashboard/progress', label: t.sidebar.myProgress, icon: LineChart },
     { href: '/dashboard/history-points', label: t.sidebar.historyPoints, icon: History },
