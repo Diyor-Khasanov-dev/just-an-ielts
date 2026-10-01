@@ -15,14 +15,6 @@ export function Navbar({ onToggleSidebar, isCollapsed }: NavbarProps) {
   return (
     <header className="dashboard-topbar">
       <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
-        <button
-          className="sidebar-toggle-btn p-2 text-gray-500 hover:text-gray-700 rounded-lg hover:bg-gray-100 transition-colors flex items-center justify-center shrink-0"
-          onClick={onToggleSidebar}
-          aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
-          title={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
-        >
-          {isCollapsed ? <PanelLeftOpen size={20} /> : <PanelLeftClose size={20} />}
-        </button>
 
         <div className="top-search flex-1 max-w-xs sm:max-w-sm md:max-w-md">
           <Search size={14} className="text-gray-400 shrink-0" />
