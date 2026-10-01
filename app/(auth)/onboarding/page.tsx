@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { ArrowLeft, ArrowRight, Check, ChevronRight, Crown, Sparkles } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
 import { LanguageSelector } from '@/components/LanguageSelector'
+import { ValuePropositionSection } from '@/components/ValuePropositionSection'
 
 const goals = ['University admission', 'Work or migration', 'Personal development', 'Not sure yet']
 const dates = ['In less than 1 month', '1–3 months', '3–6 months', 'I have not booked yet']
@@ -138,7 +139,13 @@ export default function Onboarding() {
                   <em>{t.onboarding.mostPopular}</em>
                 </button>
               </div>
-              <div className='onboarding-actions'>
+
+              {/* Value Proposition & ROI Breakdown on Purchase/Onboarding Step */}
+              <div className='mt-8 pt-8 border-t border-gray-200/80 w-full'>
+                <ValuePropositionSection compact={true} showCta={false} />
+              </div>
+
+              <div className='onboarding-actions mt-6'>
                 <button
                   type='button'
                   onClick={() => {
