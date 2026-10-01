@@ -42,7 +42,7 @@ export default function WritingPage() {
       </div>
 
       {/* Task Type Switcher */}
-      <div className="flex items-center gap-3 bg-white p-2 rounded-2xl border border-gray-200 shadow-sm max-w-md">
+      <div className="flex items-center gap-3 bg-white p-2 rounded-2xl border border-gray-200 shadow-sm w-150!">
         <button
           onClick={() => {
             setTaskType('task1')

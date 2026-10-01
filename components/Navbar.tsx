@@ -36,11 +36,6 @@ export function Navbar({ onToggleSidebar, isCollapsed }: NavbarProps) {
       <div className="top-actions flex items-center gap-2 sm:gap-3 shrink-0">
         <LanguageSelector align="right" />
 
-        <div className="hidden xl:flex items-center gap-2 px-3 py-1.5 bg-indigo-50/70 text-indigo-700 rounded-full text-xs font-semibold border border-indigo-100 shrink-0">
-          <Sparkles size={14} className="text-indigo-500" />
-          <span>{t.navbar.targetBand} 7.5</span>
-        </div>
-
         <button className="icon-button shrink-0" aria-label="Notifications">
           <Bell size={18} />
           <i />

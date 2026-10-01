@@ -22,9 +22,6 @@ export function PracticePage() {
           <h1>{t.dashboard.greeting}</h1>
           <p>{t.dashboard.subtitle}</p>
         </div>
-        <Link className="primary-action" href="/dashboard/practice">
-          <Play size={16} fill="currentColor" /> {t.dashboard.startPractice}
-        </Link>
       </div>
 
       <section className="goal-banner">
@@ -61,9 +58,6 @@ export function PracticePage() {
             <h2>{t.dashboard.continueLeftOff}</h2>
             <p>{t.dashboard.shortFocusedPractice}</p>
           </div>
-          <Link href="/dashboard/practice">
-            {t.dashboard.seeAllPractice} <ArrowUpRight size={15} />
-          </Link>
         </div>
         <div className="skill-grid">
           {skillData.map(({ label, detail, score, color, icon: Icon, href }) => (
