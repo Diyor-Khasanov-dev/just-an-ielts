@@ -16,7 +16,7 @@ import { Language } from '@/lib/i18n/translations'
 export default function SettingsPage() {
   const { lang, setLang, t } = useLanguage()
 
-  const [activeTab, setActiveTab] = useState<'profile' | 'reminders' | 'appearance' | 'account'>('profile')
+  const [activeTab, setActiveTab] = useState<'profile' | 'reminders' | 'appearance'>('profile')
   const [targetBand, setTargetBand] = useState('7.5')
   const [examDate, setExamDate] = useState('2026-10-20')
   const [dailyMinutes, setDailyMinutes] = useState(30)
@@ -52,14 +52,13 @@ export default function SettingsPage() {
           { id: 'profile', label: t.settings.tabProfile, icon: Target },
           { id: 'reminders', label: t.settings.tabReminders, icon: Bell },
           { id: 'appearance', label: t.settings.tabAppearance, icon: Palette },
-          { id: 'account', label: t.settings.tabSecurity, icon: Shield },
         ].map((tab) => {
           const Icon = tab.icon
           const isActive = activeTab === tab.id
           return (
             <button
               key={tab.id}
-              onClick={() => setActiveTab(tab.id as 'profile' | 'reminders' | 'appearance' | 'account')}
+              onClick={() => setActiveTab(tab.id as 'profile' | 'reminders' | 'appearance')}
               className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-xs transition cursor-pointer ${
                 isActive
                   ? 'bg-indigo-600 text-white shadow-md'
@@ -235,32 +234,6 @@ export default function SettingsPage() {
                     </button>
                   ))}
                 </div>
-              </div>
-            </div>
-          )}
-
-          {activeTab === 'account' && (
-            <div className="space-y-5 max-w-xl">
-              <h3 className="text-lg font-extrabold text-gray-900 border-b border-gray-200 pb-3">
-                Account & Security
-              </h3>
-
-              <div className="p-4 bg-indigo-50 border border-indigo-200 rounded-xl space-y-1">
-                <b className="text-xs font-bold text-indigo-900 block">
-                  Google Sign-in Active
-                </b>
-                <p className="text-[11px] text-indigo-800">
-                  Your account is connected via Google OAuth 2.0 session.
-                </p>
-              </div>
-
-              <div className="pt-2">
-                <button
-                  type="button"
-                  className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold text-xs rounded-xl transition"
-                >
-                  Export My Practice History (JSON)
-                </button>
               </div>
             </div>
           )}
